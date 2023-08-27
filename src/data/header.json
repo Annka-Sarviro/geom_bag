@@ -1,0 +1,37 @@
+{
+  "nav": [
+    {
+      "name": "Всі товари",
+      "url": "/#products",
+      "id": "products",
+      "offset": -60
+    },
+    {
+      "name": "Новинки",
+      "url": "/#new_products",
+      "id": "new_products",
+      "offset": -60
+    },
+    {
+      "name": "Доставка",
+      "url": "/#delivery",
+      "id": "delivery",
+      "offset": -60
+    },
+    {
+      "name": "Контакти",
+      "url": "/#contacts",
+      "id": "contacts",
+      "offset": -140
+    }
+  ],
+  "search": "Пошук товару",
+  "buttons": {
+    "mobileMenu": {
+      "label": {
+        "open": "Відкрити мобільне меню",
+        "close": "Закрити мобільне меню"
+      }
+    }
+  }
+}

@@ -11,6 +11,17 @@ const config: Config = {
       mdOnly: { min: '768px', max: '1279.98px' },
       notXl: { max: '1279.98px' },
     },
+    fontSize: {
+      xs: '0.75rem',
+      sm: '0.875rem',
+      base: '1rem',
+      xl: '1.25rem',
+      '2xl': '1.5rem',
+      '3xl': '1.875rem',
+      '4xl': '2.25rem',
+      '5xl': '3rem',
+      40: ['2.5rem', '3.375rem'],
+    },
     extend: {
       container: {
         center: true,
@@ -37,6 +48,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['Noto_Sans', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
       },
     },
   },

@@ -1,0 +1,118 @@
+'use client';
+import { MouseEvent, useEffect, useState } from 'react';
+
+import IconButton from '@/components/button/IconButton';
+import ContactsList from '@/components/header/ContactsList/ContactsList';
+import { NavList } from '@/components/header/NavList';
+import { Navigation } from '@/components/header/Navigation';
+import Logo from '../Logo';
+
+import { useCloseOnEsc } from '@/hooks';
+import useBreakpoints from '@/hooks/useBreakpoints';
+
+import CloseMenuIcon from '../../../public/svg/close.svg';
+import MobileMenuIcon from '../../../public/svg/menu.svg';
+
+import { ContactsListProps } from '@/components/common/Contacts/Contacts.props';
+import { ItemProps } from './Header.props';
+
+import header from '@/data/header.json';
+
+const Header = ({ contacts }: ContactsListProps) => {
+  const HEIGHT_SCROLL = 80;
+  const { less768px } = useBreakpoints();
+  const items = header.nav as ItemProps[];
+
+  // Navbar toggle
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const navbarToggleHandler = () => {
+    setNavbarOpen(!navbarOpen);
+  };
+  const closeNavbar = () => setNavbarOpen(false);
+  // Sticky Navbar
+  const [sticky, setSticky] = useState(false);
+  const handleStickyNavbar = () => {
+    if (window.scrollY >= HEIGHT_SCROLL) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  // Close Navbar with click to ESC and on the backdrop
+  const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget === e.target) {
+      navbarToggleHandler();
+    }
+  };
+  useCloseOnEsc(() => setNavbarOpen(false));
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleStickyNavbar);
+  });
+
+  useEffect(() => {
+    navbarOpen
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto');
+  }, [navbarOpen]);
+
+  return (
+    <header
+      className={`left-0 top-0 z-40 flex h-[80px] md:h-[150px] w-full items-center border-b-[1px] border-solid border-white_gray bg-transparent  ${
+        sticky
+          ? '!fixed !z-[9999] !bg-white !bg-opacity-50  backdrop-blur-[3px] !transition '
+          : 'absolute bg-white '
+      }`}
+    >
+      {less768px ? (
+        <div className=" container relative flex justify-between items-center	">
+          <div
+            className={`absolute z-30 xl:mr-[100px] notXl:bg-white/50 notXl:backdrop-blur-[3px] ${
+              navbarOpen
+                ? ' disable-scroll !fixed left-0 top-0 h-screen w-screen '
+                : '!static notXl:hidden  '
+            }`}
+            onClick={handleBackdropClick}
+          >
+            <div className="relative ml-auto flex flex-col smOnly:w-[200px] smOnly:px-5 smOnly:pb-[122px] mdOnly:w-[280px] mdOnly:pl-6 mdOnly:pr-5 notXl:h-screen  notXl:overflow-y-auto notXl:bg-primary notXl:pb-20 notXl:pt-[122px]">
+              <Navigation
+                onItemClick={closeNavbar}
+                list={items}
+                isOpen={navbarOpen}
+                contacts={contacts}
+              />
+            </div>
+          </div>
+          <Logo width={69} height={46} className="!block w-[69px] h-[46px]" />
+
+          {navbarOpen ? (
+            <IconButton
+              onClick={navbarToggleHandler}
+              label={header.buttons.mobileMenu.label.close}
+              className="flex items-center justify-center text-primary  xl:hidden"
+            >
+              <CloseMenuIcon width={40} height={40} className="h-10 w-10" />
+            </IconButton>
+          ) : (
+            <IconButton
+              onClick={navbarToggleHandler}
+              label={header.buttons.mobileMenu.label.open}
+              className="flex items-center justify-center text-primary  xl:hidden"
+            >
+              <MobileMenuIcon width={30} height={30} className="h-[30px] w-[30px]" />
+            </IconButton>
+          )}
+        </div>
+      ) : (
+        <div className="container relative ">
+          <ContactsList contacts={contacts} />
+          <Logo className="!block md:absolute mdOnly:top-8 xl:top-0 md:inset-x-0 mdOnly:scale-[0.69]	m-auto" />
+          <NavList list={items} />
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
