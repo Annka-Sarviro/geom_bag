@@ -3,6 +3,10 @@ import { Metadata } from 'next';
 import { toNextMetadata } from 'react-datocms';
 import query from './page.graphql';
 
+import Section from '@/components/common/Section/Section';
+import Hero from '@/sections/Hero/Hero';
+import NewProduct from '@/sections/NewProduct/NewProduct';
+
 const getHomepageContent = async () => await request(query);
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,7 +21,12 @@ const Home = async () => {
 
   return (
     <main className="">
-      <section>hero </section>
+      <Section variant="hero" id="hero">
+        <Hero />
+      </Section>
+      <Section variant="primary" id="new_product">
+        <NewProduct />
+      </Section>
     </main>
   );
 };
