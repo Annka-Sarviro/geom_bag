@@ -43,7 +43,7 @@ const config: Config = {
         gray_light: '#C7C7C7',
         white_gray: '#DFDEDE',
         gray_transparent: 'rgba(29, 29, 29, 0.34)',
-        accent: '#52BD94',
+        accent: '#5364FA',
         error: '#E25252',
       },
       fontFamily: {
