@@ -1,29 +1,26 @@
 'use client';
 
-// import IconButton from '@/components/button/IconButton';
-import LinkButton from '@/components/button/LinkButton';
 import Paragraph from '@/components/typography/Paragraph/';
 import Title from '@/components/typography/Title';
 
-// import Icon from '../../../public/svg/close.svg';
+// import heroData from '@/data/hero.json';
+import { HeroProps } from './Hero.props';
 
-const Hero = () => {
+const Hero = (data: HeroProps) => {
+  const { title, description, buttonText, image, name, subtitle } = data;
   // const handleClick = () => {
   //   return console.log('click');
   // };
 
   return (
-    <div className="container bg-gray">
+    <div className="container  ">
       <Title tag="h1" variant="light">
-        GEOM BAGS
+        {title}
       </Title>
-      <Paragraph variant="hero">perfect line for your style</Paragraph>
-      <LinkButton scroll disabled href="new_product" variant="simple">
-        New
-      </LinkButton>
-      {/* <IconButton label="кнопка закриття">
-        <Icon className="w-[40px] h-[40px]" onClick={handleClick} />
-      </IconButton> */}
+      <Paragraph variant="hero">{subtitle}</Paragraph>
+      {/* <LinkButton scroll disabled href={heroData.button.href} variant="simple">
+        {buttonText}
+      </LinkButton> */}
     </div>
   );
 };
