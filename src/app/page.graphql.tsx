@@ -13,12 +13,15 @@ const PAGE_CONTENT_QUERY = `
         content
       }
       address
-      eMail
+      email
       id
       instagram
-      mainUrl
       tel(markdown: true)
       telegram
+      telegramTitle
+      viber
+      viberTitle
+      instagramTitle
     }
     allProductCards {
       id

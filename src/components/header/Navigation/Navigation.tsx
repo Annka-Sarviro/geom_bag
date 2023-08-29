@@ -14,7 +14,7 @@ export const Navigation: FC<NavigationProps> = ({
   return (
     <nav
       id="navbarCollapse"
-      className={`container xl:w-auto xl:max-w-[541px]  xl:border-none md:!bg-transparent xl:p-0 xl:opacity-100 smOnly:mb-[60px] mdOnly:mb-20 ${
+      className={`container xl:w-auto xl:max-w-[541px]  xl:border-none md:!bg-transparent xl:p-0 xl:opacity-100 smOnly:flex-col-reverse smOnly:flex smOnly:gap-y-10 mdOnly:mb-20 ${
         isOpen ? 'visibility  opacity-100' : 'invisible top-[120%] opacity-0'
       }`}
     >

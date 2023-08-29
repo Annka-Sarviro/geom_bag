@@ -17,7 +17,7 @@ export const NavItem: FC<NavItemProps> = ({ list }) => {
               item.name === 'Новинки' ? 'md:mr-[152px] xl:mr-[382px]' : null
             }`}
           >
-            <LinkButton href={item.id} variant="simple">
+            <LinkButton href={item.id} variant="simple" className="smOnly:mx-auto">
               {item.name}
             </LinkButton>
           </li>

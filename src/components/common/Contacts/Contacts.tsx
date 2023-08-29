@@ -10,7 +10,11 @@ const Contacts = (props: ContactsListProps) => {
   const contacts = props.contacts;
   const full = props.full;
   return (
-    <ul className={`flex gap-x-12 ${full ? 'grid grid-rows-2 grid-flow-col gap-y-[13px]' : ''}`}>
+    <ul
+      className={`flex smOnly:flex-col  smOnly:gap-y-4 smOnly:mb-4 gap-x-12 mdOnly:gap-x-4 ${
+        full ? 'grid grid-rows-2 grid-flow-col gap-y-[13px]' : ''
+      }`}
+    >
       <li>
         <a
           href={`tel:${contacts.tel}`}
@@ -30,7 +34,7 @@ const Contacts = (props: ContactsListProps) => {
           rel="noopener noreferrer nofollow"
         >
           <TelegramImg width={30} height={30} className="h-[30px] w-[30px] fill-inherit" />
-          <Paragraph className="text-inherit">{contacts.telegram}</Paragraph>
+          <Paragraph className="text-inherit">{contacts.telegramTitle}</Paragraph>
         </a>
       </li>
       <li className={` ${!full ? 'hidden' : ''}`}>
@@ -41,7 +45,7 @@ const Contacts = (props: ContactsListProps) => {
           rel="noopener noreferrer nofollow"
         >
           <ViberImg width={30} height={30} className="h-[30px] w-[30px] fill-inherit" />
-          <Paragraph className="text-inherit">{contacts.viber}</Paragraph>
+          <Paragraph className="text-inherit">{contacts.viberTitle}</Paragraph>
         </a>
       </li>
       <li className={` ${!full ? 'hidden' : ''}`}>
@@ -52,7 +56,7 @@ const Contacts = (props: ContactsListProps) => {
           className="flex gap-x-3 hover:text-accent hover:fill-accent duration-300"
         >
           <InstagramImg width={30} height={30} className="h-[30px] w-[30px] fill-inherit" />
-          <Paragraph className="text-inherit">{contacts.instagram}</Paragraph>
+          <Paragraph className="text-inherit">{contacts.instagramTitle}</Paragraph>
         </a>
       </li>
     </ul>

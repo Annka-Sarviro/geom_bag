@@ -4,7 +4,7 @@ import Button from '@/components/button/Button';
 import Paragraph from '@/components/typography/Paragraph';
 import Title from '@/components/typography/Title';
 
-const NewProduct = () => {
+const NewProduct = (data: any) => {
   const handleClick = () => {
     return console.log('click');
   };

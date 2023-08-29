@@ -94,7 +94,7 @@ const Header = ({ contacts }: ContactsListProps) => {
             }`}
             onClick={handleBackdropClick}
           >
-            <div className="relative  bg-white ml-auto flex flex-col w-screen px-5 pb-[122px] ">
+            <div className="relative  bg-white ml-auto flex flex-col w-screen py-6">
               <Navigation
                 onItemClick={closeNavbar}
                 list={items}

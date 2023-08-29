@@ -13,7 +13,7 @@ const Section = forwardRef<HTMLElement, SectionProps>(function Search(
       className={cn('', className, {
         ['py-[60px] xl:py-[80px] text-dark']: variant == 'primary',
         ['py-8 text-dark bg-gray_light']: variant == 'colored',
-        ['py-0 text-white']: variant == 'hero',
+        ['pt-[80px] md:pt-[150px] text-white bg-gray']: variant == 'hero',
       })}
       {...props}
     >

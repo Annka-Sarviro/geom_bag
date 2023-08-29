@@ -28,7 +28,7 @@ const config: Config = {
         padding: {
           DEFAULT: '1.25rem',
           sm: '1.25rem',
-          md: '2rem',
+          md: '1.5rem',
           xl: '2rem',
         },
       },

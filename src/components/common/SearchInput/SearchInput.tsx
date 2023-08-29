@@ -20,15 +20,14 @@ const SearchInput = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center">
-        <SearchSvg className="w-[30px] h-[30px] mr-4 " />
+      <form onSubmit={handleSubmit} className="flex items-center gap-x-4">
+        <SearchSvg className="w-[30px] h-[30px] " />
         <input
           type="search"
           name="query"
-          autoFocus
           placeholder={data.search}
           onChange={handleSearchChange}
-          className="py-[6px] px-6 md:py-2 w-[290px] md:w-360px border border-dark placeholder:text-base md:placeholder:text-xl placeholder:text-gray_light"
+          className="py-[6px] px-6 md:py-2 w-[290px] md:w-[250px] xl:w-[360px] text-base  border border-dark placeholder:text-base md:placeholder:text-xl placeholder:text-gray_light"
         />
       </form>
     </>
