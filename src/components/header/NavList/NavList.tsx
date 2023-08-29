@@ -6,7 +6,7 @@ import { NavListProps } from './NavList.props';
 
 export const NavList: FC<NavListProps> = ({ list, onItemClick }) => {
   return (
-    <ul className=" md:flex md:justify-center md:gap-x-[60px] smOnly:space-y-10 ">
+    <ul className="flex justify-center smOnly:flex-col  md:gap-x-[60px] smOnly:gap-y-4 ">
       <NavItem onItemClick={onItemClick} list={list} />
     </ul>
   );

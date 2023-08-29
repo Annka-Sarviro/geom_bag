@@ -66,24 +66,7 @@ const Header = ({ contacts }: ContactsListProps) => {
       }`}
     >
       {less768px ? (
-        <div className=" container relative flex justify-between items-center	">
-          <div
-            className={`absolute z-30 xl:mr-[100px] notXl:bg-white/50 notXl:backdrop-blur-[3px] ${
-              navbarOpen
-                ? ' disable-scroll !fixed left-0 top-0 h-screen w-screen '
-                : '!static notXl:hidden  '
-            }`}
-            onClick={handleBackdropClick}
-          >
-            <div className="relative ml-auto flex flex-col smOnly:w-[200px] smOnly:px-5 smOnly:pb-[122px] mdOnly:w-[280px] mdOnly:pl-6 mdOnly:pr-5 notXl:h-screen  notXl:overflow-y-auto notXl:bg-primary notXl:pb-20 notXl:pt-[122px]">
-              <Navigation
-                onItemClick={closeNavbar}
-                list={items}
-                isOpen={navbarOpen}
-                contacts={contacts}
-              />
-            </div>
-          </div>
+        <div className=" container  flex justify-between items-center	">
           <Logo width={69} height={46} className="!block w-[69px] h-[46px]" />
 
           {navbarOpen ? (
@@ -103,11 +86,28 @@ const Header = ({ contacts }: ContactsListProps) => {
               <MobileMenuIcon width={30} height={30} className="h-[30px] w-[30px]" />
             </IconButton>
           )}
+          <div
+            className={`absolute z-10 xl:mr-[100px] notXl:bg-gray_transparent notXl:backdrop-blur-[3px] ${
+              navbarOpen
+                ? ' disable-scroll !fixed left-0 top-20 h-screen w-screen '
+                : '!static notXl:hidden  '
+            }`}
+            onClick={handleBackdropClick}
+          >
+            <div className="relative  bg-white ml-auto flex flex-col w-screen py-6">
+              <Navigation
+                onItemClick={closeNavbar}
+                list={items}
+                isOpen={navbarOpen}
+                contacts={contacts}
+              />
+            </div>
+          </div>
         </div>
       ) : (
         <div className="container relative ">
           <ContactsList contacts={contacts} />
-          <Logo className="!block md:absolute mdOnly:top-8 xl:top-0 md:inset-x-0 mdOnly:scale-[0.69]	m-auto" />
+          <Logo className="!block md:absolute mdOnly:top-12 xl:top-4 md:inset-x-0 mdOnly:scale-[0.69]	m-auto" />
           <NavList list={items} />
         </div>
       )}
