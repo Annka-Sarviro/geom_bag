@@ -7,6 +7,7 @@ import query from './page.graphql';
 
 import Section from '@/components/common/Section/';
 import Advantages from '@/sections/Advantages';
+import AllProducts from '@/sections/AllProducts';
 import Hero from '@/sections/Hero/Hero';
 import NewProduct from '@/sections/NewProduct/';
 
@@ -39,11 +40,14 @@ const Home = async () => {
       <Section variant="hero" id="hero" className="relative">
         <Hero {...heroData} />
       </Section>
-      <Section variant="primary" id="new_product">
+      <Section variant="primary" id="new_products">
         <NewProduct data={productData} />
       </Section>
-      <Section variant="colored" id="new_product" className="advantages">
+      <Section variant="colored" id="advantages" className="advantages">
         <Advantages data={advantagesData} />
+      </Section>
+      <Section variant="primary" id="all_products" className="">
+        <AllProducts data={productData} />
       </Section>
     </main>
   );

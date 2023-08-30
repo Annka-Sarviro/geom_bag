@@ -3,4 +3,5 @@ export interface ItemProps {
   name: string;
   id: string;
   offset: number;
+  scroll: boolean;
 }

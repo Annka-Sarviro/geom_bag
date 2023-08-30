@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       className={cn(
-        'flex w-full max-w-[220px] items-center justify-center py-[10px] px-9 text-xl',
+        'flex w-full max-w-[242px] items-center justify-center py-[10px] px-9 text-xl',
         className,
         !disabled && {
           [' border-dark bg-dark border-2 border-solid  text-white duration-300 hover:bg-white focus:bg-white hover:text-dark focus:text-dark']:

@@ -7,7 +7,7 @@ query Home {
       tag
     }
   }
-  allProductCards {
+  allProductCards (filter: {availability: {eq: "true"}}) {
     id
     image {
       responsiveImage (imgixParams: { fit: crop, w: 240, h: 240, auto: format })  {
@@ -18,6 +18,7 @@ query Home {
         alt
         title
         base64
+        
       }
     }
     material
@@ -36,6 +37,8 @@ query Home {
     article
     isnew
     ispopular
+    category
+    availability
   }
   allSections {
     description

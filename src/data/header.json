@@ -2,20 +2,23 @@
   "nav": [
     {
       "name": "Всі товари",
-      "url": "/#products",
-      "id": "products",
+      "url": "/#all_products",
+      "id": "all_products",
+      "scroll": true,
       "offset": -60
     },
     {
       "name": "Новинки",
       "url": "/#new_products",
       "id": "new_products",
+      "scroll": true,
       "offset": -60
     },
     {
       "name": "Доставка",
       "url": "/#delivery",
       "id": "delivery",
+      "scroll": false,
       "offset": -60
     },
     {
