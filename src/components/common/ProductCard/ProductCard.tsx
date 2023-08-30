@@ -1,3 +1,5 @@
+'use client';
+
 import { useCloseOnEsc } from '@/hooks';
 import { useEffect, useState } from 'react';
 
@@ -30,20 +32,19 @@ const ProductCard = ({ item }: any) => {
   return (
     <>
       <li
-        className="w-[280px] md:w-[300px] flex flex-col items-center gap-y-4"
+        className="w-full md:w-[270px] flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 mx-auto"
         onClick={handleClick}
       >
-        <DatoImage data={item.image[0].responsiveImage} />
-        <div>
-          <Title variant="dark" tag="h3" className="text-center">
-            {item.name}
-          </Title>
-          <Paragraph variant="dark" className="text-sm md:text-base text-center">
-            {item.article}
-          </Paragraph>
-        </div>
+        <DatoImage data={item.image[0].responsiveImage} className="mx-auto" />
 
-        <Paragraph className="!text-accent !font-semibold">{item.price} грн</Paragraph>
+        <Title variant="dark" tag="h3" className="text-center">
+          {item.name}
+        </Title>
+        <Paragraph variant="dark" className="text-sm md:text-base text-center mb-4">
+          {item.article}
+        </Paragraph>
+
+        <Paragraph className="!text-accent !font-semibold mt-[auto]">{item.price} грн</Paragraph>
       </li>
 
       {isModalOpen && (

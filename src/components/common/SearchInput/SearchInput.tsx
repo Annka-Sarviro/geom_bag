@@ -20,7 +20,7 @@ const SearchInput = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center gap-x-4">
+      <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center">
         <SearchSvg className="w-[30px] h-[30px] " />
         <input
           type="search"
