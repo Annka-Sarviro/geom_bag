@@ -32,10 +32,7 @@ const config: Config = {
           xl: '2rem',
         },
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      backgroundImage: {},
       colors: {
         dark: '#1E1E1E',
         dark_gray: '#6E6E6E',

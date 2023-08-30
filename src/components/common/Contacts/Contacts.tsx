@@ -9,6 +9,7 @@ import ViberImg from '../../../../public/svg/viber.svg';
 const Contacts = (props: ContactsListProps) => {
   const contacts = props.contacts;
   const full = props.full;
+
   return (
     <ul
       className={`flex smOnly:flex-col  smOnly:gap-y-4 smOnly:mb-4 gap-x-12 mdOnly:gap-x-4 ${
