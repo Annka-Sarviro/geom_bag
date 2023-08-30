@@ -219,3 +219,263 @@ body {
 }
 
 /* end advantages section style */
+
+/* start materials section style */
+.materialsMobile {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/materials/materials-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .materialsMobile {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/materials/materials-mobile-@1x.webp')
+) {
+  .materialsMobile {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsMobile {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-mobile-@2x.webp');
+    }
+  }
+}
+
+.materialsDesktop0 {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/advantages/advantages-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/materials/materials-mobile-@1x.webp')
+) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-mobile-@2x.webp');
+    }
+  }
+}
+/* 
+@media screen and (min-width: 480px) {
+.aboutBg {
+  background-size: 480px 224px;
+  background-position: top left calc(50% - 6px);
+}
+} */
+
+@media screen and (min-width: 768px) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-tablet-@1x.jpg');
+    background-size: 930px 488px;
+    background-position: center left calc(50% - 464px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-tablet-@2x.jpg');
+    }
+  }
+
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials0-tablet-@1x.webp')
+  ) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-tablet-@2x.webp');
+      background-size: 930px 488px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop0 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials0-tablet-@2x.webp');
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials0-desktop-@1x.jpg');
+    background-size: 1220px 480px;
+    background-position: center left calc(50% - 618px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-desktop-@2x.jpg');
+    }
+  }
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials0-desktop-@1x.webp')
+  ) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-desktop-@2x.webp');
+      background-size: 1220px 480px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop0 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials0-desktop-@2x.webp');
+      }
+    }
+  }
+}
+/* end materials section style*/

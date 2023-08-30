@@ -2,7 +2,7 @@ import ProductCard from '@/components/common/ProductCard/ProductCard';
 
 const ProductsList = ({ data }: any) => {
   return (
-    <ul className="flex">
+    <ul className="flex flex-wrap">
       {data.map((item: any) => (
         <ProductCard item={item} key={item.id} />
       ))}
