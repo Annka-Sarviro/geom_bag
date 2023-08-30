@@ -1,14 +1,22 @@
 const PAGE_CONTENT_QUERY = `
  query MyQuery {
-    contact {
-      telegram
-      tel
-      email
-      address
-      instagram
-      id
-      viber
+  contact {
+    _seoMetaTags {
+      attributes
+      content
     }
+    address
+    email
+    id
+    instagram
+    instagramTitle
+    tel
+    telTitle
+    telegram
+    telegramTitle
+    viber
+    viberTitle
+  }
   }
 `;
 
