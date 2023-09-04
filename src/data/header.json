@@ -25,6 +25,7 @@
       "name": "Контакти",
       "url": "/#contacts",
       "id": "contacts",
+      "scroll": true,
       "offset": -140
     }
   ],
