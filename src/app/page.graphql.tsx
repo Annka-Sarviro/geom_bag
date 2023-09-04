@@ -71,6 +71,15 @@ query Home {
       tag
     }
   }
+  allRewiers {
+    id
+    link
+    name
+    text
+    product {
+      name
+    }
+  }
   allContacts {
     _seoMetaTags {
       attributes

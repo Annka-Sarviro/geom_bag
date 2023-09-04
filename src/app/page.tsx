@@ -11,8 +11,9 @@ import AllProducts from '@/sections/AllProducts';
 import Hero from '@/sections/Hero/Hero';
 import Materials from '@/sections/Materials/';
 import NewProduct from '@/sections/NewProduct/';
+import { Reviewers } from '@/sections/Reviewers';
 
-import { AdvantagesProps } from '@/sections/Advantages/Advantages.props';
+import { AdvantagesProps, RewiersProps } from '@/sections/Advantages/Advantages.props';
 import { HeroProps } from '@/sections/Hero/Hero.props';
 import FaviconImg from '../../public/favicon.png';
 
@@ -36,6 +37,7 @@ const Home = async () => {
   const productData = data.allProductCards;
   const advantagesData: AdvantagesProps = getFilteredContent(data?.allSections, 'advantages');
   const materialsData: AdvantagesProps = getFilteredContent(data?.allSections, 'materials');
+  const reviewersData: RewiersProps = data?.allRewiers;
 
   return (
     <main className="">
@@ -53,6 +55,9 @@ const Home = async () => {
       </Section>
       <Section variant="colored" id="materials" className="!p-0">
         <Materials data={materialsData} />
+      </Section>
+      <Section variant="primary" id="reviewers" className="">
+        <Reviewers data={reviewersData} />
       </Section>
     </main>
   );
