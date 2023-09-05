@@ -8,10 +8,11 @@ import query from './page.graphql';
 import Section from '@/components/common/Section/';
 import Advantages from '@/sections/Advantages';
 import AllProducts from '@/sections/AllProducts';
+import GroupMenu from '@/sections/GroupMenu';
 import Hero from '@/sections/Hero/Hero';
 import Materials from '@/sections/Materials/';
 import NewProduct from '@/sections/NewProduct/';
-import { Reviewers } from '@/sections/Reviewers';
+import Reviewers from '@/sections/Reviewers';
 
 import { AdvantagesProps, RewiersProps } from '@/sections/Advantages/Advantages.props';
 import { HeroProps } from '@/sections/Hero/Hero.props';
@@ -38,6 +39,7 @@ const Home = async () => {
   const advantagesData: AdvantagesProps = getFilteredContent(data?.allSections, 'advantages');
   const materialsData: AdvantagesProps = getFilteredContent(data?.allSections, 'materials');
   const reviewersData: RewiersProps = data?.allRewiers;
+  const groupMenuData: AdvantagesProps = getFilteredContent(data?.allSections, 'groupMenu');
 
   return (
     <main className="">
@@ -58,6 +60,9 @@ const Home = async () => {
       </Section>
       <Section variant="primary" id="reviewers" className="">
         <Reviewers data={reviewersData} />
+      </Section>
+      <Section variant="colored" id="groupMenu" className="!p-0">
+        <GroupMenu data={groupMenuData} />
       </Section>
     </main>
   );
