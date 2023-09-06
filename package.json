@@ -28,12 +28,15 @@
     "react-dom": "18.2.0",
     "react-media-hook": "^0.5.0",
     "react-scroll": "^1.8.9",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",
     "@tailwindcss/forms": "^0.5.4",
+    "@types/react-slick": "^0.23.10",
     "classnames": "^2.3.2",
     "encoding": "^0.1.13",
     "eslint-config-prettier": "^9.0.0",

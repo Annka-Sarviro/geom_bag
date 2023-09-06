@@ -1,5 +1,5 @@
 const PAGE_CONTENT_QUERY = `
-query deliverypage {
+query Offertpage {
   site: _site {
     favicon: faviconMetaTags {
       attributes
@@ -7,7 +7,7 @@ query deliverypage {
       tag
     }
   }
-  deliverypage {
+  offertpage {
     id
     _seoMetaTags {
       attributes
@@ -15,11 +15,16 @@ query deliverypage {
       tag
     }
   }
-  allSectionDeliverypages {
+  allSectionOffertpages {
+    description
+    buttonText
+    descriptionstruct {
+      blocks
+      links
+      value
+    }
     id
     name
-    subtitle
-    description(markdown: false)
     title
   }
 }

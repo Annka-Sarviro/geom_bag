@@ -31,8 +31,8 @@ const ProductCard = ({ item }: any) => {
 
   return (
     <>
-      <li
-        className="w-full md:w-[270px] flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 mx-auto"
+      <div
+        className="w-full  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 "
         onClick={handleClick}
       >
         <DatoImage data={item.image[0].responsiveImage} className="mx-auto" />
@@ -45,7 +45,7 @@ const ProductCard = ({ item }: any) => {
         </Paragraph>
 
         <Paragraph className="!text-accent !font-semibold mt-[auto]">{item.price} грн</Paragraph>
-      </li>
+      </div>
 
       {isModalOpen && (
         <Modal>
