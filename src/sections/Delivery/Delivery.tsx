@@ -5,7 +5,7 @@ const Delivery = ({ data }: any) => {
   return (
     <div className="container">
       <Title tag="h2">{data.title}</Title>
-      <Paragraph variantFontSize="text" variant="dark">
+      <Paragraph variantFontSize="text" variant="dark" className="whitespace-pre-wrap">
         {data.description}
       </Paragraph>
     </div>

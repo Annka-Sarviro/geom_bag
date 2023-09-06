@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -870,3 +872,50 @@ body {
   }
 }
 /* end materials section style*/
+
+/* SlickSlider */
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  width: 40px;
+  height: 40px;
+}
+
+.slick-arrow.slick-next {
+}
+.slick-arrow.slick-prev {
+}
+
+.slick-arrow.slick-next::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url('/svg/than.svg');
+}
+
+.slick-arrow.slick-prev::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url('/svg/before.svg');
+}
+
+.materials .slick-slider .slick-dots {
+  position: absolute;
+  bottom: 24px;
+}
+
+.slick-slider .slick-dots li button:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('/svg/dot.svg');
+}
+.slick-slider .slick-dots .slick-active button:before {
+  background-image: url('/svg/dot-full.svg');
+}
+
+.slick-slider .slick-dots li {
+  margin: 0 12px;
+}

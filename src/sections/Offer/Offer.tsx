@@ -1,7 +1,7 @@
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title/Title';
 
-const Return = ({ data }: any) => {
+const Offer = ({ data }: any) => {
   return (
     <div className="container">
       <Title tag="h2">{data.title}</Title>
@@ -12,4 +12,4 @@ const Return = ({ data }: any) => {
   );
 };
 
-export default Return;
+export default Offer;

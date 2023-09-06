@@ -12,7 +12,7 @@ const Materials = ({ data }: any) => {
   const { less768px } = useBreakpoints();
 
   return (
-    <div className="">
+    <div className="materials">
       <Title tag="h2" className="hidden">
         {d.title}
       </Title>
