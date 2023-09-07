@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
+import { useFilterContext } from '@/app/context';
 import data from '@/data/header.json';
+import { scroller } from 'react-scroll';
 import SearchSvg from '.././../../../public/svg/search.svg';
 
-const SearchInput = ({ setNameFilter }: any) => {
+const SearchInput = ({ closeNavbar }: any) => {
+  const { searchfilter, setSearchfilter } = useFilterContext();
   const [searchParams, setSearchParams] = useState();
   const query = searchParams;
 
@@ -15,8 +18,16 @@ const SearchInput = ({ setNameFilter }: any) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setNameFilter(searchBags);
-    console.log(searchBags);
+
+    setSearchfilter(searchBags);
+    // closeNavbar();
+    // setSearchBags('');
+    // setNavbarOpen(false);
+    scroller.scrollTo('all_products', {
+      duration: 800,
+      offset: -50,
+      smooth: 'easeInOutQuart',
+    });
   };
 
   return (
@@ -26,7 +37,8 @@ const SearchInput = ({ setNameFilter }: any) => {
         <input
           type="search"
           name="query"
-          placeholder={data.search}
+          placeholder={searchfilter ? searchfilter : data.search}
+          value={searchBags}
           onChange={handleSearchChange}
           className="py-[6px] px-6 md:py-2 w-[290px] md:w-[250px] xl:w-[360px] text-base  border border-dark placeholder:text-base md:placeholder:text-xl placeholder:text-gray_light"
         />
