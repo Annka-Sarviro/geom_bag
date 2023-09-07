@@ -3,7 +3,7 @@ import { useState } from 'react';
 import data from '@/data/header.json';
 import SearchSvg from '.././../../../public/svg/search.svg';
 
-const SearchInput = () => {
+const SearchInput = ({ setNameFilter }: any) => {
   const [searchParams, setSearchParams] = useState();
   const query = searchParams;
 
@@ -15,6 +15,7 @@ const SearchInput = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setNameFilter(searchBags);
     console.log(searchBags);
   };
 
