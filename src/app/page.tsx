@@ -52,7 +52,7 @@ const Home = async () => {
       <Section variant="colored" id="advantages" className="advantages">
         <Advantages data={advantagesData} />
       </Section>
-      <Section variant="primary" id="all_products" className="">
+      <Section variant="primary" id="all_products" name="all_products" className="">
         <AllProducts data={productData} />
       </Section>
       <Section variant="colored" id="materials" className="!p-0">
