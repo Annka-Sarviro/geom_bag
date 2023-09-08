@@ -64,6 +64,7 @@ const Home = async () => {
       <Section variant="colored" id="groupMenu" className="!p-0">
         <GroupMenu data={groupMenuData} />
       </Section>
+      <div id="modal" />
     </main>
   );
 };

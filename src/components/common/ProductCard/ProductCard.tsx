@@ -1,16 +1,19 @@
 'use client';
 
 import { useCloseOnEsc } from '@/hooks';
+import useBreakpoints from '@/hooks/useBreakpoints';
 import { useEffect, useState } from 'react';
 
 import { Image as DatoImage } from 'react-datocms';
 
-import FullProductCard from '@/components/common/FullProductCard';
 import Modal from '@/components/common/Modal';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
+import FullProductCardDesktop from '../FullProductCardDesktop';
+import FullProductCardMobile from '../FullProductCardMobile/FullProductCardMobile';
 
 const ProductCard = ({ item }: any) => {
+  const { less768px } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = () => {
@@ -32,7 +35,7 @@ const ProductCard = ({ item }: any) => {
   return (
     <>
       <div
-        className="w-full  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 "
+        className="w-full  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 cursor-pointer"
         onClick={handleClick}
       >
         <DatoImage data={item.image[0].responsiveImage} className="mx-auto" />
@@ -48,8 +51,12 @@ const ProductCard = ({ item }: any) => {
       </div>
 
       {isModalOpen && (
-        <Modal>
-          <FullProductCard data={item} />
+        <Modal ModalClose={ModalClose} setIsModalOpen={setIsModalOpen}>
+          {less768px ? (
+            <FullProductCardMobile data={item} />
+          ) : (
+            <FullProductCardDesktop data={item} />
+          )}
         </Modal>
       )}
     </>
