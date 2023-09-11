@@ -22,7 +22,6 @@ query Home {
       }
     }
     material
-    materialProperty
     name
     peculiar
     price

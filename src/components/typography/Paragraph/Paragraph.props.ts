@@ -7,4 +7,5 @@ export interface ParagraphProps {
   children: ReactNode;
   paragraphRef?: RefObject<HTMLParagraphElement>;
   id?: string;
+  centered?: boolean;
 }

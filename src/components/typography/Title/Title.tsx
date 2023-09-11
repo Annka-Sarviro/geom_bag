@@ -3,13 +3,14 @@ import { FC } from 'react';
 
 import { TitleProps } from './Title.props';
 
-const Title: FC<TitleProps> = ({ tag = 'h2', variant = 'dark', children, className }) => {
+const Title: FC<TitleProps> = ({ tag = 'h2', variant = 'dark', centered, children, className }) => {
   const Tag = tag;
 
   return (
     <Tag
       className={cn(
         {
+          ['text-center']: centered,
           ['text-dark']: variant == 'dark',
           ['text-white']: variant == 'light',
           ['font-montserrat font-semibold text-40  md:text-[60px]']: tag == 'h1',

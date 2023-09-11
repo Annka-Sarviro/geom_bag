@@ -34,7 +34,7 @@ const offerPage = async () => {
 
   return (
     <main className="">
-      <Section variant="primary" id="payment" className="!pt-[220px]">
+      <Section variant="primary" id="offer" className="!pt-[120px] md:!pt-[220px]">
         <Offer data={offerData} />
       </Section>
     </main>
