@@ -13,7 +13,7 @@ import FullProductCardDesktop from '../FullProductCardDesktop';
 import FullProductCardMobile from '../FullProductCardMobile/FullProductCardMobile';
 
 const ProductCard = ({ item }: any) => {
-  const { less768px } = useBreakpoints();
+  const { less1040px } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = () => {
@@ -52,7 +52,7 @@ const ProductCard = ({ item }: any) => {
 
       {isModalOpen && (
         <Modal ModalClose={ModalClose} setIsModalOpen={setIsModalOpen}>
-          {less768px ? (
+          {less1040px ? (
             <FullProductCardMobile data={item} />
           ) : (
             <FullProductCardDesktop data={item} />

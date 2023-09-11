@@ -39,7 +39,7 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
             type="button"
             onClick={ModalClose}
             label={d.button.ariaLabel.close}
-            className="absolute top-2 right-2"
+            className="absolute  top-1 right-0 md:top-2 md:right-2"
           >
             <Close className="h-8 w-8 text-white" />
           </IconButton>
