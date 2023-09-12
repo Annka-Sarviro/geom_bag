@@ -10,7 +10,7 @@ import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
 
-const FullProductCardMobile = ({ data }: any) => {
+const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -37,10 +37,11 @@ const FullProductCardMobile = ({ data }: any) => {
   };
 
   const handleClick = () => {
-    return console.log('click');
+    setIsFormOpen(true);
+    return setIsCardOpen(false);
   };
   return (
-    <>
+    <div className="w-[80vw]">
       <Slider {...settings} className="fullCardSlider">
         {data.image.map((item: any, ind: number) => (
           <DatoImage data={item?.responsiveImage} key={ind} />
@@ -92,7 +93,7 @@ const FullProductCardMobile = ({ data }: any) => {
       <Button variant="primary" onClick={handleClick} className="mx-auto">
         {d.button.text}
       </Button>
-    </>
+    </div>
   );
 };
 

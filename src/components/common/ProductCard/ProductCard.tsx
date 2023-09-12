@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 import { Image as DatoImage } from 'react-datocms';
 
+import OrderForm from '@/components/OrderForm/OrderForm';
 import Modal from '@/components/common/Modal';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
@@ -15,9 +16,12 @@ import FullProductCardMobile from '../FullProductCardMobile/FullProductCardMobil
 const ProductCard = ({ item }: any) => {
   const { less1040px } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCardOPen, setIsCardOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleClick = () => {
     setIsModalOpen(!isModalOpen);
+    setIsCardOpen(true);
   };
 
   const ModalClose = () => {
@@ -52,10 +56,24 @@ const ProductCard = ({ item }: any) => {
 
       {isModalOpen && (
         <Modal ModalClose={ModalClose} setIsModalOpen={setIsModalOpen}>
-          {less1040px ? (
-            <FullProductCardMobile data={item} />
+          {isCardOPen ? (
+            less1040px ? (
+              <FullProductCardMobile
+                data={item}
+                setIsCardOpen={setIsCardOpen}
+                setIsFormOpen={setIsFormOpen}
+              />
+            ) : (
+              <FullProductCardDesktop
+                data={item}
+                setIsCardOpen={setIsCardOpen}
+                setIsFormOpen={setIsFormOpen}
+              />
+            )
           ) : (
-            <FullProductCardDesktop data={item} />
+            <div>
+              <OrderForm item={item} setIsModalOpen={setIsModalOpen} />
+            </div>
           )}
         </Modal>
       )}

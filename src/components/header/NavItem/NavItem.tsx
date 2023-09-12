@@ -4,7 +4,7 @@ import { FC, Key } from 'react';
 import LinkButton from '@/components/button/LinkButton/LinkButton';
 import { NavItemProps } from './NavItem.props';
 
-export const NavItem: FC<NavItemProps> = ({ list }) => {
+export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
   const router = useRouter();
 
   return (
@@ -21,6 +21,7 @@ export const NavItem: FC<NavItemProps> = ({ list }) => {
               href={item.id}
               variant="simple"
               scroll={item.scroll}
+              onClick={() => (isOpen ? setNavbarOpen(false) : null)}
               className="smOnly:mx-auto"
             >
               {item.name}

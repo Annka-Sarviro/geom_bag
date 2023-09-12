@@ -12,7 +12,7 @@ import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
 
-const FullProductCardDesktop = ({ data }: any) => {
+const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
   const [nav1, setNav1] = useState<any>(null);
   const [nav2, setNav2] = useState<any>(null);
   const [imgCount, setImgCount] = useState<any>(null);
@@ -33,8 +33,6 @@ const FullProductCardDesktop = ({ data }: any) => {
   useEffect(() => {
     setNav1(slider1.current), setNav2(slider2.current);
   }, []);
-
-  console.log(data);
 
   const settings1 = {
     infinite: true,
@@ -70,11 +68,12 @@ const FullProductCardDesktop = ({ data }: any) => {
   };
 
   const handleClick = () => {
-    return console.log('click');
+    setIsFormOpen(true);
+    return setIsCardOpen(false);
   };
   return (
-    <>
-      <div className="flex justify-between	 mb-10 min-h-[350px]">
+    <div className="max-w-[896px]">
+      <div className="flex justify-between	 mb-10 min-h-[350px] ">
         <div className="flex flex-col justify-between">
           <div className="w-[300px]">
             <Title tag="h3" variant="dark">
@@ -140,7 +139,7 @@ const FullProductCardDesktop = ({ data }: any) => {
       <Button variant="primary" onClick={handleClick} className="mx-auto mt-4">
         {d.button.text}
       </Button>
-    </>
+    </div>
   );
 };
 
