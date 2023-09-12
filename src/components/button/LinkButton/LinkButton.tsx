@@ -60,6 +60,7 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
   return (
     <Link legacyBehavior href={href} {...disabledProps}>
       <a
+        onClick={onClick}
         className={cn(
           'flex w-full max-w-[240px] cursor-pointer items-center rounded-sm border-2 border-solid p-[10px] text-xl',
           className,

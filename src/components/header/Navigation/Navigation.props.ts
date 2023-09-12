@@ -5,5 +5,5 @@ export interface NavigationProps {
   contacts: ContactsProps;
   list: ItemProps[];
   isOpen: boolean;
-  onItemClick: () => void;
+  setNavbarOpen?: any;
 }

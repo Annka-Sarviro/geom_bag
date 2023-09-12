@@ -12,7 +12,7 @@ import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
 
-const FullProductCardDesktop = ({ data }: any) => {
+const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
   const [nav1, setNav1] = useState<any>(null);
   const [nav2, setNav2] = useState<any>(null);
   const [imgCount, setImgCount] = useState<any>(null);
@@ -33,8 +33,6 @@ const FullProductCardDesktop = ({ data }: any) => {
   useEffect(() => {
     setNav1(slider1.current), setNav2(slider2.current);
   }, []);
-
-  console.log(data);
 
   const settings1 = {
     infinite: true,
@@ -70,7 +68,8 @@ const FullProductCardDesktop = ({ data }: any) => {
   };
 
   const handleClick = () => {
-    return console.log('click');
+    setIsFormOpen(true);
+    return setIsCardOpen(false);
   };
   return (
     <>

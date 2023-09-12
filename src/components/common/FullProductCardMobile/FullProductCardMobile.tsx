@@ -10,7 +10,7 @@ import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
 
-const FullProductCardMobile = ({ data }: any) => {
+const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -37,7 +37,8 @@ const FullProductCardMobile = ({ data }: any) => {
   };
 
   const handleClick = () => {
-    return console.log('click');
+    setIsFormOpen(true);
+    return setIsCardOpen(false);
   };
   return (
     <>
