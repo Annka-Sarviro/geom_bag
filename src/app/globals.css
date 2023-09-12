@@ -881,8 +881,10 @@ body {
 }
 
 .slick-arrow.slick-next {
+  right: -24px;
 }
 .slick-arrow.slick-prev {
+  left: -24px;
 }
 
 .slick-arrow.slick-next::before {
@@ -918,4 +920,22 @@ body {
 
 .slick-slider .slick-dots li {
   margin: 0 12px;
+}
+
+.fullCardSlider.slick-slider .slick-list .slick-track .slick-slide.slick-active.slick-current {
+  text-align: center;
+}
+
+.cardVerticalSlider.slick-slider .slick-arrow.slick-next {
+  right: calc(50% - 20px);
+  bottom: -20px;
+  top: initial;
+  transform: rotate(90deg);
+}
+
+.cardVerticalSlider.slick-slider .slick-arrow.slick-prev {
+  left: calc(50% - 20px);
+  bottom: initial;
+  top: -24px;
+  transform: rotate(90deg);
 }

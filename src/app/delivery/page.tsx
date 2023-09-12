@@ -38,13 +38,13 @@ const deliveryPage = async () => {
 
   return (
     <main className="">
-      <Section variant="primary" id="payment" className="!pt-[220px]">
+      <Section variant="primary" id="payment" className="!pt-[120px] md:!pt-[220px]">
         <Payment data={paymentData} />
       </Section>
       <Section variant="primary" id="delivery" className="">
         <Delivery data={deliveryData} />
       </Section>
-      <Section variant="primary" id="all_products" className="">
+      <Section variant="primary" id="return" className="">
         <Return data={returnData} />
       </Section>
     </main>

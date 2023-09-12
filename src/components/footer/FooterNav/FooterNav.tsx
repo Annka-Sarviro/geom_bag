@@ -8,7 +8,7 @@ const FooterNav = ({ data }: any) => {
       <ul className="grid grid-cols-2  gap-y-[13px] md:gap-x-24 ">
         {data.links.map((item: any, ind: number) => {
           return (
-            <li key={ind}>
+            <li key={ind} className="hover:text-accent duration-500">
               <Link href={item.link} scroll={item.scroll}>
                 {item.name}
               </Link>

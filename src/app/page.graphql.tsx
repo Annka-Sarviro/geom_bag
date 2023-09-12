@@ -10,7 +10,7 @@ query Home {
   allProductCards (filter: {availability: {eq: "true"}}) {
     id
     image {
-      responsiveImage (imgixParams: { fit: crop, w: 240, h: 240, auto: format })  {
+      responsiveImage (imgixParams: { fit: crop, w: 400, h: 400, auto: format })  {
         sizes
         src
         width
@@ -22,7 +22,6 @@ query Home {
       }
     }
     material
-    materialProperty
     name
     peculiar
     price

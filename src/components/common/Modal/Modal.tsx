@@ -2,6 +2,7 @@ import ClientOnlyPortal from '@/utils/ClientOnlyPortal';
 import { MouseEvent, useEffect } from 'react';
 import Close from '../../../../public/svg/close.svg';
 
+import IconButton from '@/components/button/IconButton';
 import d from '@/data/modal.json';
 
 const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
@@ -33,10 +34,15 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
         onClick={handleBackdropClick}
         className="!bg-gray_transparent !fixed !inset-0 !z-[10000] flex xl:items-center justify-center overflow-x-scroll items-start"
       >
-        <div className="!p-9 bg-white max-w-[896px]">
-          <button type="button" onClick={ModalClose} aria-label={d.button.ariaLabel.close}>
-            <Close className="h-6 w-6 text-white" />
-          </button>
+        <div className="p-6 md:p-9 bg-white w-[80vw] md:max-w-[896px] relative">
+          <IconButton
+            type="button"
+            onClick={ModalClose}
+            label={d.button.ariaLabel.close}
+            className="absolute  top-1 right-0 md:top-2 md:right-2"
+          >
+            <Close className="h-8 w-8 text-white" />
+          </IconButton>
 
           {children}
         </div>

@@ -6,6 +6,7 @@ import { ParagraphProps } from './Paragraph.props';
 const Paragraph: FC<ParagraphProps> = ({
   variant = 'dark',
   variantFontSize = 'text',
+  centered,
   children,
   className,
   ...props
@@ -15,6 +16,7 @@ const Paragraph: FC<ParagraphProps> = ({
       className={cn(
         'font-normal',
         {
+          ['text-center']: centered,
           ['text-dark']: variant == 'dark',
           ['text-white']: variant == 'white',
           ['font-montserrat text-xl md:!text-3xl ']: variant == 'hero',

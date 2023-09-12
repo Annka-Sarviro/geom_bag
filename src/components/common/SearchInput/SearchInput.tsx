@@ -20,7 +20,7 @@ const SearchInput = ({ closeNavbar }: any) => {
     e.preventDefault();
 
     setSearchfilter(searchBags);
-    // closeNavbar();
+    closeNavbar();
     // setSearchBags('');
     // setNavbarOpen(false);
     scroller.scrollTo('all_products', {
@@ -33,7 +33,7 @@ const SearchInput = ({ closeNavbar }: any) => {
   return (
     <>
       <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center">
-        <SearchSvg className="w-[30px] h-[30px] " />
+        <SearchSvg width={30} height={30} className="w-[30px] h-[30px] " />
         <input
           type="search"
           name="query"
