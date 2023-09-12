@@ -72,8 +72,8 @@ const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => 
     return setIsCardOpen(false);
   };
   return (
-    <>
-      <div className="flex justify-between	 mb-10 min-h-[350px]">
+    <div className="max-w-[896px]">
+      <div className="flex justify-between	 mb-10 min-h-[350px] ">
         <div className="flex flex-col justify-between">
           <div className="w-[300px]">
             <Title tag="h3" variant="dark">
@@ -139,7 +139,7 @@ const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => 
       <Button variant="primary" onClick={handleClick} className="mx-auto mt-4">
         {d.button.text}
       </Button>
-    </>
+    </div>
   );
 };
 

@@ -5,16 +5,15 @@ import useFormPersist from 'react-hook-form-persist';
 import Button from '@/components/button/Button';
 import FormInput from '@/components/common/FormInput';
 import FormNotification from '@/components/common/FormNotification';
-import Loader from '@/components/common/Loader';
 
-// import sendToTlg from 'services/api/sendToTlg';
 import FormInputs from '@/components/common/Form/Form.props';
 import fieldsParams from '@/components/common/Form/fieldsParams';
+import sendToTlg from '@/services/api/sendToTlg';
 
 import Paragraph from '@/components/typography/Paragraph';
 import d from '@/data/form.json';
 
-const Form = ({ orderName, price }: any) => {
+const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: any) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [finalMessage, setFinalMessage] = useState<string | null>(null);
@@ -44,18 +43,23 @@ const Form = ({ orderName, price }: any) => {
       setIsSending(true);
 
       const sendData = { ...data, orderName, price };
-      console.log(sendData);
-      //   const result = await sendToTlg(data);
-      //   if (result.ok) {
-      //     setIsSending(false);
-      //     setFinalMessage('Незабаром наш менеджер звʼяжеться з вами');
-      //     reset();
-      //     sessionStorage.removeItem(STORAGE_KEY);
-      //   }
+
+      const result = await sendToTlg(sendData);
+      if (result.ok) {
+        setIsSending(false);
+        setFinalMessage(d.messages.sent);
+        setIsNotificationOpen(true);
+        setTimeout(() => {
+          setIsModalOpen(false);
+        }, 4000);
+        reset();
+        sessionStorage.removeItem(STORAGE_KEY);
+      }
     } catch (error) {
       setIsSending(false);
       setError(true);
-      setFinalMessage('Щось пішло не так');
+      setIsNotificationOpen(true);
+      setFinalMessage(d.messages.error);
     }
   };
 
@@ -74,14 +78,15 @@ const Form = ({ orderName, price }: any) => {
             />
           </>
         ))}
-        <Button type="submit">{d.button.text}</Button>
+        <Button type="submit" className="mx-auto" disabled={isSending ? true : false}>
+          {isSending ? d.button.sending : d.button.text}
+        </Button>
       </form>
-      {isSending && <Loader />}
     </div>
   ) : error ? (
-    <FormNotification forOrdering forError subText={finalMessage} />
+    <FormNotification forError subText={finalMessage} />
   ) : (
-    <FormNotification forOrdering subText={finalMessage} />
+    <FormNotification subText={finalMessage} />
   );
 };
 

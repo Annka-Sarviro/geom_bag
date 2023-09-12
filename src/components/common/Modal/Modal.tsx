@@ -32,9 +32,9 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
     <ClientOnlyPortal selector="#modal">
       <div
         onClick={handleBackdropClick}
-        className="!bg-gray_transparent !fixed !inset-0 !z-[10000] flex xl:items-center justify-center overflow-x-scroll items-start"
+        className="!bg-gray_transparent !fixed !inset-0 !z-[10000] flex  justify-center overflow-x-scroll items-start py-10"
       >
-        <div className="p-6 md:p-9 bg-white w-[80vw] md:max-w-[896px] relative">
+        <div className="p-6 md:p-9 bg-white  relative">
           <IconButton
             type="button"
             onClick={ModalClose}

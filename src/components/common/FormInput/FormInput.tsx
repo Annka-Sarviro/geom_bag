@@ -12,7 +12,7 @@ function FormInput(props: FieldProps) {
       </label>
       {type === 'select' ? (
         <select
-          className={` py-2.5 px-7  mb-7 w-[100%] bg-white_gray text-dark border border-dark valid:bg-white ${
+          className={` py-2.5 px-7  mb-2 w-[100%] bg-white_gray text-dark border border-dark valid:bg-white ${
             errors[name] ? 'border-error border border-style:solid' : 'border'
           }`}
           {...reg(name, options)}
@@ -29,7 +29,7 @@ function FormInput(props: FieldProps) {
       ) : (
         <input
           id={`formField${name}`}
-          className={`relative py-2.5 px-7  mb-7 w-[100%] bg-white_gray text-dark border border-dark valid:bg-white ${
+          className={`relative py-2.5 px-7  mb-2  w-[100%] bg-white_gray text-dark border border-dark valid:bg-white ${
             errors[name] ? 'border-error border border-style:solid' : 'border'
           }`}
           type={type}
@@ -41,7 +41,7 @@ function FormInput(props: FieldProps) {
       )}
 
       <div
-        className={` z-10 absolute right-0 text-error text-xs max-[346px]:text-[10px] bottom-[8px]
+        className={` z-10 absolute right-0 text-error text-xs max-[346px]:text-[10px] bottom-[-14px]
         `}
       >
         {errors[name] && <p>{...Object.values(errors[name].message)}</p>}

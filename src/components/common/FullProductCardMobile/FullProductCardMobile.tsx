@@ -41,7 +41,7 @@ const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
     return setIsCardOpen(false);
   };
   return (
-    <>
+    <div className="w-[80vw]">
       <Slider {...settings} className="fullCardSlider">
         {data.image.map((item: any, ind: number) => (
           <DatoImage data={item?.responsiveImage} key={ind} />
@@ -93,7 +93,7 @@ const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
       <Button variant="primary" onClick={handleClick} className="mx-auto">
         {d.button.text}
       </Button>
-    </>
+    </div>
   );
 };
 

@@ -5,19 +5,35 @@ import Paragraph from '../typography/Paragraph';
 import Title from '../typography/Title';
 
 import d from '@/data/form.json';
+import { useState } from 'react';
 
-const OrderForm = ({ item }: any) => {
+const OrderForm = ({ item, setIsModalOpen }: any) => {
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   return (
-    <div>
-      <div>
-        <Title tag="h2">{d.title}</Title>
-        <DatoImage data={item?.image[0].responsiveImage} />
-        <Paragraph variantFontSize="text"> {item.name}</Paragraph>
-        <Paragraph>
-          {item.price} {d.price}
-        </Paragraph>
-      </div>
-      <Form orderName={item.name} price={item.price} />
+    <div className="w-[80vw] md:max-w-[620px]">
+      {!isNotificationOpen && (
+        <div>
+          <Title tag="h3" centered>
+            {d.title}
+          </Title>
+          <div className="w-[120px] h-[120px] mx-auto">
+            <DatoImage data={item?.image[0].responsiveImage} />
+          </div>
+          <Paragraph className="" centered>
+            {item.name}
+          </Paragraph>
+          <Paragraph className=" !text-accent" centered>
+            {item.price} {d.price}
+          </Paragraph>
+        </div>
+      )}
+
+      <Form
+        orderName={item.name}
+        price={item.price}
+        setIsModalOpen={setIsModalOpen}
+        setIsNotificationOpen={setIsNotificationOpen}
+      />
     </div>
   );
 };

@@ -72,7 +72,7 @@ const ProductCard = ({ item }: any) => {
             )
           ) : (
             <div>
-              <OrderForm item={item} />
+              <OrderForm item={item} setIsModalOpen={setIsModalOpen} />
             </div>
           )}
         </Modal>

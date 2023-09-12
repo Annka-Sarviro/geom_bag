@@ -16,12 +16,15 @@
     { "name": "office", "type": "text", "label": "№ відділення/індекс" }
   ],
   "button": {
-    "text": "Відправити"
+    "text": "Відправити",
+    "sending": "Відправка"
   },
   "messages": {
-    "sent": "Thanks for register. Please, verify your email",
-    "error": "Ooops...Try again",
-    "login": "success",
+    "sent": "Незабаром наш менеджер звʼяжеться з вами",
+    "error": "Щось пішло не так",
+    "ok": "Дякуємо за замовлення",
+    "oops": "Упссс...",
+
     "validation": {
       "name": {
         "required": "Це поле обов'язкове ",
