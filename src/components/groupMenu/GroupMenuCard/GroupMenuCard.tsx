@@ -1,24 +1,34 @@
-import Paragraph from '@/components/typography/Paragraph/';
-import Link from 'next/link';
+'use client';
 
-const GroupMenuCard = ({ item, title }: any) => {
+import { useGroupContext } from '@/app/context';
+import Paragraph from '@/components/typography/Paragraph';
+import Link from 'next/link';
+import { Image as DatoImage } from 'react-datocms';
+
+const GroupMenuCard = ({ item, title, id }: any) => {
   const data = item.responsiveImage.src;
+  const { groupFilter, setGroupFilter } = useGroupContext();
+
+  const handleClick = () => {
+    return setGroupFilter(id);
+  };
 
   return (
-    <li
-      style={{
-        backgroundImage: `radial-gradient(
-            122.97% 68.68% at 50% 50%,
-            rgba(29, 29, 29, 0.242) 0%,
-            rgba(29, 29, 29, 0.56) 58.33%,
-            #1d1d1d 90%,
-            #1d1d1d 90%
-          ),url(${data})`,
-      }}
-      className={`h-[380px] md:h-[480px] bg-cover bg-center bg-no-repeat`}
-    >
-      <Link href={'/'} className=" h-full w-full p-4 flex items-end">
-        <Paragraph variantFontSize="text" variant="white" className="">
+    <li>
+      <Link
+        onClick={handleClick}
+        href={'/#all_products'}
+        className="relative h-full w-full flex items-end overflow-hidden"
+      >
+        <DatoImage
+          data={item.responsiveImage}
+          className="hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
+        />
+        <Paragraph
+          variantFontSize="text"
+          variant="white"
+          className="absolute bottom-5 left-5 !text-3xl "
+        >
           {title}
         </Paragraph>
       </Link>

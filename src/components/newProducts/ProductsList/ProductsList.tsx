@@ -7,7 +7,7 @@ const ProductsList = ({ data }: any) => {
   const settings = {
     infinite: true,
     speed: 500,
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,

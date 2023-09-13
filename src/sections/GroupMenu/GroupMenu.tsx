@@ -11,7 +11,9 @@ const GroupMenu = ({ data }: any) => {
       </Title>
       <ul className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1">
         {data.image.map((item: any, ind: number) => {
-          return <GroupMenuCard item={item} key={ind} title={d.group[ind].name} />;
+          return (
+            <GroupMenuCard item={item} key={ind} title={d.group[ind].name} id={d.group[ind].id} />
+          );
         })}
       </ul>
     </div>

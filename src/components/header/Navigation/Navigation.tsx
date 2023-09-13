@@ -18,7 +18,7 @@ export const Navigation: FC<NavigationProps> = ({
         isOpen ? 'visibility  opacity-100' : 'invisible top-[120%] opacity-0'
       }`}
     >
-      <ContactsList contacts={contacts} />
+      <ContactsList contacts={contacts} setNavbarOpen={setNavbarOpen} />
       <NavList setNavbarOpen={setNavbarOpen} list={list} isOpen={isOpen} />
     </nav>
   );
