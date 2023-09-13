@@ -13,6 +13,6 @@ export interface ContactsProps {
 
 export interface ContactsListProps {
   contacts: ContactsProps;
-  closeNavbar?: any;
+  setNavbarOpen?: any;
   full?: boolean;
 }

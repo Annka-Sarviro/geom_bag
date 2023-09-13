@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
 
-import { FilterContextProvider } from '@/app/context';
+import { FilterContextProvider, GroupFilterContextProvider } from '@/app/context';
 import query from '@/app/layout.graphql';
 import { request } from '@/lib/datocms';
 
@@ -27,11 +27,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <body className={noto.className}>
-        <FilterContextProvider>
-          <Header contacts={contacts} />
-          {children}
-          <Footer contacts={contacts} />
-        </FilterContextProvider>
+        <GroupFilterContextProvider>
+          <FilterContextProvider>
+            <Header contacts={contacts} />
+            {children}
+            <Footer contacts={contacts} />
+          </FilterContextProvider>
+        </GroupFilterContextProvider>
       </body>
     </html>
   );

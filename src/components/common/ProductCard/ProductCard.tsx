@@ -42,8 +42,12 @@ const ProductCard = ({ item }: any) => {
         className="w-full  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 cursor-pointer"
         onClick={handleClick}
       >
-        <DatoImage data={item.image[0].responsiveImage} className="mx-auto" />
-
+        <div className="overflow-hidden">
+          <DatoImage
+            data={item.image[0].responsiveImage}
+            className="mx-auto hover:scale-[1.2] duration-1000"
+          />
+        </div>
         <Title variant="dark" tag="h3" className="text-center">
           {item.name}
         </Title>

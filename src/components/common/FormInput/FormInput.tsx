@@ -29,7 +29,7 @@ function FormInput(props: FieldProps) {
       ) : (
         <input
           id={`formField${name}`}
-          className={`relative py-2.5 px-7  mb-2  w-[100%] bg-white_gray text-dark border border-dark valid:bg-white ${
+          className={`relative py-2.5 px-7  mb-2  w-[100%] bg-white_gray text-dark border border-dark  ${
             errors[name] ? 'border-error border border-style:solid' : 'border'
           }`}
           type={type}

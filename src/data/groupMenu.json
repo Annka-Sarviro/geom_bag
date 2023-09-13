@@ -1,4 +1,8 @@
 {
   "title": "Choose group of product",
-  "group": [{ "name": "Сумки-бананки" }, { "name": "Кросс-боді" }, { "name": "Чохли" }]
+  "group": [
+    { "name": "Сумки-бананки", "id": "bags" },
+    { "name": "Кросс-боді", "id": "crossbody" },
+    { "name": "Чохли", "id": "cover" }
+  ]
 }

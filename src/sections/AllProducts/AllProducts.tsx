@@ -2,7 +2,7 @@
 
 import d from '@/data/all_products.json';
 
-import { useFilterContext } from '@/app/context';
+import { useFilterContext, useGroupContext } from '@/app/context';
 import AllProductsList from '@/components/allProducts/AllProductsList';
 import Filter from '@/components/allProducts/Filter';
 import Button from '@/components/button/Button/Button';
@@ -17,13 +17,19 @@ const AllProducts = ({ data }: any) => {
   const [cardData, setCardData] = useState([]);
   const [filter, setFilter] = useState('all');
   const { searchfilter, setSearchfilter } = useFilterContext();
-  // const [filteredData, setFiltered] = useState();
-  // const [nameFilter, setNameFilter] = useState('');
+  const { groupFilter, setGroupFilter } = useGroupContext();
+
   const cardQuantity = 8;
 
   useEffect(() => {
     data.length <= cardData.length ? setDisabled(true) : setDisabled(false);
   }, [cardData, data]);
+
+  useEffect(() => {
+    if (groupFilter) {
+      setFilter(groupFilter);
+    }
+  }, [groupFilter]);
 
   useEffect(() => {
     if (searchfilter) {
@@ -57,18 +63,19 @@ const AllProducts = ({ data }: any) => {
         setFilter={setFilter}
         setPageCount={setPageCount}
         setDisabled={setDisabled}
+        setSearchfilter={setSearchfilter}
       />
       <SearchInput />
       {cardData.length === 0 || !data ? (
         <Paragraph variant="dark" className="text-center mt-4">
-          По запиту &quot;{searchfilter}&quot; нічого не знайденою.
+          {d.nullSearch.start} &quot;{searchfilter}&quot; {d.nullSearch.end}
           {d.errorText}
         </Paragraph>
       ) : (
         <>
           {searchfilter && (
             <Paragraph variant="dark" className="text-center mt-4">
-              Показаны результати пошуку {searchfilter}
+              {d.searchText} {searchfilter}
             </Paragraph>
           )}
           <AllProductsList data={cardData} />

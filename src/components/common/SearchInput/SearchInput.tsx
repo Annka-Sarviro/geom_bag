@@ -5,7 +5,7 @@ import data from '@/data/header.json';
 import { scroller } from 'react-scroll';
 import SearchSvg from '.././../../../public/svg/search.svg';
 
-const SearchInput = ({ closeNavbar }: any) => {
+const SearchInput = ({ setNavbarOpen }: any) => {
   const { searchfilter, setSearchfilter } = useFilterContext();
   const [searchParams, setSearchParams] = useState();
   const query = searchParams;
@@ -20,9 +20,10 @@ const SearchInput = ({ closeNavbar }: any) => {
     e.preventDefault();
 
     setSearchfilter(searchBags);
-    closeNavbar();
-    // setSearchBags('');
-    // setNavbarOpen(false);
+    if (setNavbarOpen) {
+      setNavbarOpen(false);
+    }
+
     scroller.scrollTo('all_products', {
       duration: 800,
       offset: -50,
