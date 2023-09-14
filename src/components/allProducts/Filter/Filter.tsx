@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const Filter = ({ filters, setFilter, setPageCount, setDisabled, setSearchfilter }: any) => {
   const [current, setCurrent] = useState('all');
-  console.log(filters[0].id);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const name = (event.target as HTMLButtonElement).id;
 

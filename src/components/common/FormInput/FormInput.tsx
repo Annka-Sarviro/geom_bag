@@ -3,7 +3,6 @@ import FieldProps from './FronInput.props';
 function FormInput(props: FieldProps) {
   const { data, reg, errors, options } = props;
   const { type, name, label, value1, value2 } = data;
-  console.log(errors.name);
 
   return (
     <div className="relative">
