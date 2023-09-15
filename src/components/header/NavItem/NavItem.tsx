@@ -1,11 +1,12 @@
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { FC, Key } from 'react';
 
 import LinkButton from '@/components/button/LinkButton/LinkButton';
 import { NavItemProps } from './NavItem.props';
 
 export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
-  const router = useRouter();
+  const pathname = usePathname();
+  console.log(pathname);
 
   return (
     <>
@@ -18,9 +19,9 @@ export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
             }`}
           >
             <LinkButton
-              href={item.id}
+              href={pathname === '/' || item.id === 'contacts' ? item.id : item.url}
               variant="simple"
-              scroll={item.scroll}
+              scroll={pathname === '/' || item.id === 'contacts' ? item.scroll : !item.scroll}
               onClick={() => (isOpen ? setNavbarOpen(false) : null)}
               className="smOnly:mx-auto"
             >
