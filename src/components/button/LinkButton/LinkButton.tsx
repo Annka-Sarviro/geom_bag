@@ -29,7 +29,7 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
         spy
         smooth={true}
         offset={-40}
-        duration={200}
+        duration={600}
         activeClass="active"
         className={cn(
           'flex w-full max-w-[230px] items-center justify-center border border-solid py-[10px] px-9 text-xl',

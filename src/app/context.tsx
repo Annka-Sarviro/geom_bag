@@ -27,7 +27,7 @@ export const FilterContextProvider: React.FC<{ children: React.ReactNode }> = ({
 export const GroupFilterContextProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [groupFilter, setGroupFilter] = useState('');
+  const [groupFilter, setGroupFilter] = useState('all');
 
   return (
     <GroupContext.Provider value={{ groupFilter, setGroupFilter }}>

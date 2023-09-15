@@ -15,39 +15,40 @@ const AllProducts = ({ data }: any) => {
   const [pageCount, setPageCount] = useState(1);
   const [disabled, setDisabled] = useState(false);
   const [cardData, setCardData] = useState([]);
-  const [filter, setFilter] = useState('all');
   const { searchfilter, setSearchfilter } = useFilterContext();
   const { groupFilter, setGroupFilter } = useGroupContext();
+  const [filteredData, setFilteredData] = useState([]);
 
   const cardQuantity = 8;
+  const allPageCount = data.length / cardQuantity;
 
   useEffect(() => {
-    data.length <= cardData.length ? setDisabled(true) : setDisabled(false);
-  }, [cardData, data]);
+    if (cardData.length < cardQuantity) {
+      setDisabled(true);
+    } else allPageCount > pageCount ? setDisabled(false) : setDisabled(true);
+  }, [data, pageCount, allPageCount, cardData]);
 
   useEffect(() => {
-    if (groupFilter) {
-      setFilter(groupFilter);
-    }
-  }, [groupFilter]);
+    groupFilter === 'all'
+      ? setFilteredData(data)
+      : setFilteredData(data.filter((item: any) => item.category === groupFilter));
+  }, [data, groupFilter]);
 
   useEffect(() => {
     if (searchfilter) {
-      const filtered = data.filter(
+      const filtered = filteredData.filter(
         (item: any) =>
           item.name.toLowerCase().includes(searchfilter.toLowerCase().trim()) ||
           item.article.toLowerCase().includes(searchfilter.toLowerCase().trim())
       );
 
-      filtered ? setCardData(filtered.slice(0, cardQuantity * pageCount)) : setCardData([]);
-    } else if (filter === 'all') {
-      setCardData(data.slice(0, cardQuantity * pageCount));
+      filtered.length > 0
+        ? setCardData(filtered.slice(0, cardQuantity * pageCount))
+        : setCardData([]);
     } else {
-      setCardData(
-        data.filter((item: any) => item.category === filter).slice(0, cardQuantity * pageCount)
-      );
+      setCardData(filteredData.slice(0, cardQuantity * pageCount));
     }
-  }, [data, cardQuantity, pageCount, filter, searchfilter]);
+  }, [filteredData, pageCount, searchfilter]);
 
   const handleClick = () => {
     setPageCount(pageCount + 1);
@@ -60,7 +61,6 @@ const AllProducts = ({ data }: any) => {
       </Title>
       <Filter
         filters={d.filter}
-        setFilter={setFilter}
         setPageCount={setPageCount}
         setDisabled={setDisabled}
         setSearchfilter={setSearchfilter}
@@ -79,6 +79,7 @@ const AllProducts = ({ data }: any) => {
             </Paragraph>
           )}
           <AllProductsList data={cardData} />
+
           <Button variant="secondary" disabled={disabled} className="mx-auto" onClick={handleClick}>
             {d.button.text}
           </Button>
