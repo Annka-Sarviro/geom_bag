@@ -13,7 +13,7 @@ const SearchInput = ({ setNavbarOpen }: any) => {
   const [searchBags, setSearchBags] = useState(query ?? '');
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchBags(e.currentTarget.value);
+    setSearchBags(e.currentTarget.value.trim());
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

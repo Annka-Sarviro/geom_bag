@@ -1,22 +1,28 @@
+import { useGroupContext } from '@/app/context';
 import Button from '@/components/button/Button/';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const Filter = ({ filters, setFilter, setPageCount, setDisabled, setSearchfilter }: any) => {
+const Filter = ({ filters, setPageCount, setDisabled }: any) => {
   const [current, setCurrent] = useState('all');
-  console.log(filters[0].id);
+  const { groupFilter, setGroupFilter } = useGroupContext();
+
+  useEffect(() => {
+    if (groupFilter) {
+      setCurrent(groupFilter);
+    }
+  }, [groupFilter, setCurrent]);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const name = (event.target as HTMLButtonElement).id;
 
-    if (name === 'all') {
-      setSearchfilter('');
-    }
-    if (name) {
-      setFilter(name);
-      setCurrent(name);
-    }
     setPageCount(1);
     setDisabled(false);
+
+    if (name) {
+      setGroupFilter(name);
+      setCurrent(name);
+    }
   };
 
   return (
