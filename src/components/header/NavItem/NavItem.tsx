@@ -6,7 +6,6 @@ import { NavItemProps } from './NavItem.props';
 
 export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <>

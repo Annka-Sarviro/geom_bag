@@ -107,7 +107,7 @@ const Header = ({ contacts }: ContactsListProps) => {
       ) : (
         <div className="container relative ">
           <ContactsList contacts={contacts} setNavbarOpen={setNavbarOpen} />
-          <Logo className="!block md:absolute mdOnly:top-12 xl:top-4 md:inset-x-0 mdOnly:scale-[0.69]	m-auto" />
+          <Logo className="!block md:absolute md:top-10 xl:top-4 md:inset-x-0 mdOnly:scale-[0.69]	m-auto" />
           <NavList list={items} isOpen={navbarOpen} />
         </div>
       )}

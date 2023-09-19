@@ -939,3 +939,72 @@ body {
   top: -24px;
   transform: rotate(90deg);
 }
+
+/*start Logo style*/
+.logo {
+  position: relative;
+  overflow: hidden;
+  /* clip-path: polygon(50% -5%, -8% 100%, 111% 100%); */
+  clip-path: polygon(
+    0% 100%,
+    9% 76%,
+    6% 68%,
+    15% 49%,
+    24% 49%,
+    50% 0%,
+    81% 60%,
+    86% 52%,
+    88% 75%,
+
+    101% 100%
+  );
+}
+
+.logo:hover {
+  scale: 1.02;
+  transition: 0.5s;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5em;
+  height: 100%;
+  background-color: #fff;
+  /* opacity: 0; */
+  transform: translateX(-1em) skewX(143deg);
+}
+
+.logo:hover::before {
+  animation: move-light 1s infinite ease-in-out;
+  /* transform: translateX(12em) skewX(143deg); */
+}
+
+@keyframes move-light {
+  0% {
+    transform: translateX(-1em) skewX(143deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(11em) skewX(143deg);
+  }
+}
+
+/* end logo style */
