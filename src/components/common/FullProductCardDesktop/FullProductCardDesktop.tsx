@@ -118,7 +118,7 @@ const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => 
             {...settings2}
             asNavFor={nav1}
             ref={slider2}
-            className="cardVerticalSlider w-[80px] py-2"
+            className="cardVerticalSlider w-[80px] py-2 cursor-pointer"
           >
             {data.image.map((item: any, ind: number) => (
               <DatoImage data={item?.responsiveImage} key={ind} />

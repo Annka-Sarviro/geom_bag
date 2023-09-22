@@ -52,7 +52,7 @@ const Hero = (data: HeroProps) => {
           </div>
         </div>
       </div>
-      <div className=" absolute left-0 right-0 bottom-10 container flex items-end pb-10 xl:pb-20 smOnly:justify-center">
+      <div className=" absolute left-0 right-0 bottom-10 container flex items-end pb-10 xl:pb-20 smOnly:justify-center md:left-[calc(50%_-_378px)] xl:left-[calc(50%_-_634px)] md:right-auto md:w-fit">
         <div className="relative z-10 ">
           <Title tag="h1" variant="light" className="mb-0 ">
             {title}
@@ -60,7 +60,7 @@ const Hero = (data: HeroProps) => {
           <Paragraph variant="hero" className="mb-14 md:mb-9">
             {subtitle}
           </Paragraph>
-          <LinkButton scroll href={d.button.href} variant="secondary">
+          <LinkButton scroll href={d.button.href} variant="secondary" offset={-80}>
             {buttonText}
           </LinkButton>
         </div>

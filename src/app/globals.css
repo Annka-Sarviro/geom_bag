@@ -881,10 +881,10 @@ body {
 }
 
 .slick-arrow.slick-next {
-  right: -24px;
+  right: -30px;
 }
 .slick-arrow.slick-prev {
-  left: -24px;
+  left: -30px;
 }
 
 .slick-arrow.slick-next::before {

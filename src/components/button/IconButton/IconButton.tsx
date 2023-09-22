@@ -8,10 +8,12 @@ const IconButton: FC<IconButtonProps> = ({
   label,
   children,
   type = 'button',
+  disabled = false,
   onClick,
 }) => {
   return (
     <button
+      disabled={disabled}
       type={type}
       className={cn(
         'h-fit w-fit duration-300 hover:outline-primary focus:outline-primary',

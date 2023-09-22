@@ -1,15 +1,17 @@
 'use client';
 
-import d from '@/data/all_products.json';
-
 import { useFilterContext, useGroupContext } from '@/app/context';
+import { useEffect, useState } from 'react';
+
 import AllProductsList from '@/components/allProducts/AllProductsList';
 import Filter from '@/components/allProducts/Filter';
 import Button from '@/components/button/Button/Button';
+import IconButton from '@/components/button/IconButton';
 import SearchInput from '@/components/common/SearchInput/SearchInput';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
-import { useEffect, useState } from 'react';
+import d from '@/data/all_products.json';
+import Close from '../../../public/svg/close.svg';
 
 const AllProducts = ({ data }: any) => {
   const [pageCount, setPageCount] = useState(1);
@@ -67,21 +69,40 @@ const AllProducts = ({ data }: any) => {
       />
       <SearchInput />
       {cardData.length === 0 || !data ? (
-        <Paragraph variant="dark" className="text-center mt-4">
-          {d.nullSearch.start} &quot;{searchfilter}&quot; {d.nullSearch.end}
-          {d.errorText}
-        </Paragraph>
+        <div className="flex justify-center items-center  mt-4">
+          <Paragraph variant="dark" className="text-center">
+            {d.nullSearch.start} &quot;{searchfilter}&quot; {d.nullSearch.end}
+            {d.errorText}
+          </Paragraph>
+          <IconButton
+            label={d.button.resetsearch}
+            onClick={() => setSearchfilter('')}
+            className="ml-4"
+          >
+            <Close className="h-8 w-8 fill-accent" />
+          </IconButton>
+        </div>
       ) : (
         <>
           {searchfilter && (
-            <Paragraph variant="dark" className="text-center mt-4">
-              {d.searchText} {searchfilter}
-            </Paragraph>
+            <div className="flex justify-center items-center  mt-4">
+              <Paragraph variant="dark" className="text-center">
+                {d.searchText} <span>&quot;</span>
+                {searchfilter} <span>&quot;</span>
+              </Paragraph>
+              <IconButton
+                label={d.button.resetsearch}
+                onClick={() => setSearchfilter('')}
+                className="ml-4"
+              >
+                <Close className="h-8 w-8 fill-accent" />
+              </IconButton>
+            </div>
           )}
           <AllProductsList data={cardData} />
 
           <Button variant="secondary" disabled={disabled} className="mx-auto" onClick={handleClick}>
-            {d.button.text}
+            {d.button.loadmore}
           </Button>
         </>
       )}
