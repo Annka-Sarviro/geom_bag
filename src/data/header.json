@@ -5,21 +5,21 @@
       "url": "/#all_products",
       "id": "all_products",
       "scroll": true,
-      "offset": -60
+      "offset": -80
     },
     {
       "name": "Новинки",
       "url": "/#new_products",
       "id": "new_products",
       "scroll": true,
-      "offset": -60
+      "offset": -80
     },
     {
       "name": "Доставка",
       "url": "/#delivery",
       "id": "delivery",
       "scroll": false,
-      "offset": -60
+      "offset": -80
     },
     {
       "name": "Контакти",
@@ -36,6 +36,9 @@
         "open": "Відкрити мобільне меню",
         "close": "Закрити мобільне меню"
       }
+    },
+    "searchButton": {
+      "label": "Пошук товару за назвою чи артикулу"
     }
   }
 }

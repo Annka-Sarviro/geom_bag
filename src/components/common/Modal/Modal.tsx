@@ -32,7 +32,7 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
     <ClientOnlyPortal selector="#modal">
       <div
         onClick={handleBackdropClick}
-        className="!bg-gray_transparent !fixed !inset-0 !z-[10000] flex  justify-center overflow-x-scroll items-start py-10"
+        className="!bg-gray_transparent !fixed !inset-0 !z-[10000] flex  justify-center overflow-y-scroll items-start py-10"
       >
         <div className="p-6 md:p-9 bg-white  relative">
           <IconButton
@@ -41,7 +41,7 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
             label={d.button.ariaLabel.close}
             className="absolute  top-1 right-0 md:top-2 md:right-2"
           >
-            <Close className="h-8 w-8 text-white" />
+            <Close className="h-8 w-8 text-white fill-dark" />
           </IconButton>
 
           {children}

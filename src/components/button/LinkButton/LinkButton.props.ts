@@ -9,6 +9,7 @@ export interface LinkButtonProps
   arrow?: boolean;
   scroll?: boolean;
   className?: string;
+  offset?: number;
   onClick?: ((() => void) & MouseEventHandler<HTMLButtonElement>) | undefined;
   onKeyUp?: (event: any) => void;
 }

@@ -48,7 +48,7 @@ const ProductCard = ({ item }: any) => {
             className="mx-auto hover:scale-[1.2] duration-1000"
           />
         </div>
-        <Title variant="dark" tag="h3" className="text-center">
+        <Title variant="dark" tag="h3" className="text-center line-clamp-3">
           {item.name}
         </Title>
         <Paragraph variant="dark" className="text-sm md:text-base text-center mb-4">

@@ -11,6 +11,7 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
   href,
   children,
   scroll,
+  offset,
   className,
   onClick,
   onKeyUp,
@@ -28,7 +29,7 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
         href=""
         spy
         smooth={true}
-        offset={-40}
+        offset={offset}
         duration={600}
         activeClass="active"
         className={cn(

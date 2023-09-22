@@ -5,5 +5,6 @@ export interface IconButtonProps {
   className?: string;
   label: string;
   type?: 'submit' | 'reset' | 'button';
-  onClick?: () => void;
+  onClick?: any;
+  disabled?: boolean;
 }

@@ -20,6 +20,7 @@ export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
             <LinkButton
               href={pathname === '/' || item.id === 'contacts' ? item.id : item.url}
               variant="simple"
+              offset={item.offset}
               scroll={pathname === '/' || item.id === 'contacts' ? item.scroll : !item.scroll}
               onClick={() => (isOpen ? setNavbarOpen(false) : null)}
               className="smOnly:mx-auto"
