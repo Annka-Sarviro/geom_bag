@@ -1,5 +1,6 @@
 import { request } from '@/lib/datocms';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { toNextMetadata } from 'react-datocms';
 
 import pageData from '@/data/page.json';
@@ -18,7 +19,10 @@ import { AdvantagesProps, RewiersProps } from '@/sections/Advantages/Advantages.
 import { HeroProps } from '@/sections/Hero/Hero.props';
 import FaviconImg from '../../public/favicon.png';
 
-const getHomepageContent = async () => await request(query, { revalidate: 60 });
+const getHomepageContent = async () => {
+  const { isEnabled } = draftMode();
+  return await request(query, { includeDrafts: isEnabled, revalidate: 60 });
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const data: any = await getHomepageContent();

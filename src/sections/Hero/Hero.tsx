@@ -22,7 +22,9 @@ const Hero = (data: HeroProps) => {
           <div className=" w-full h-full relative overflow-hidden">
             <Image
               src={image[0].url}
-              alt={image[0].alt}
+              alt={image[0].alt || ''}
+              sizes="100wv"
+              priority={true}
               fill
               className=" object-cover object-center hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
             />
@@ -31,7 +33,9 @@ const Hero = (data: HeroProps) => {
             <div className=" basis-7/12 relative overflow-hidden">
               <Image
                 src={image[1].url}
-                alt={image[1].alt}
+                alt={image[1].alt || ''}
+                sizes="100wv"
+                priority={true}
                 fill
                 className=" object-cover object-center hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
               />
@@ -39,7 +43,9 @@ const Hero = (data: HeroProps) => {
             <div className=" basis-5/12 relative overflow-hidden">
               <Image
                 src={image[2].url}
-                alt={image[2].alt}
+                alt={image[2].alt || ''}
+                sizes="100wv"
+                priority={true}
                 fill
                 className=" object-cover object-center hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
               />
