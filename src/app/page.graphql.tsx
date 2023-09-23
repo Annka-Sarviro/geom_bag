@@ -44,6 +44,12 @@ query Home {
     buttonText
     id
     image {
+       alt
+      height
+      id
+      size
+      url
+      width
       responsiveImage  {
         sizes
         src
