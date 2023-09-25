@@ -1,4 +1,6 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
+
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
 
@@ -31,6 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <FilterContextProvider>
             <Header contacts={contacts} />
             {children}
+            <Analytics />
             <Footer contacts={contacts} />
           </FilterContextProvider>
         </GroupFilterContextProvider>
