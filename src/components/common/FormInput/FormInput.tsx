@@ -11,8 +11,8 @@ function FormInput(props: FieldProps) {
       </label>
       {type === 'select' ? (
         <select
-          className={` py-2.5 px-7  mb-2 w-[100%] bg-white_gray text-dark border border-dark valid:bg-white ${
-            errors[name] ? 'border-error border border-style:solid' : 'border'
+          className={` py-2.5 px-7  mb-2 w-[100%] bg-white_gray text-dark border border-dark valid:!bg-white ${
+            errors[name] ? 'border-error border border-style:solid' : 'border bg-white'
           }`}
           {...reg(name, options)}
           name={name}
@@ -28,7 +28,7 @@ function FormInput(props: FieldProps) {
       ) : (
         <input
           id={`formField${name}`}
-          className={`relative py-2.5 px-7  mb-2  w-[100%] bg-white_gray text-dark border border-dark  ${
+          className={`relative py-2.5 px-7  mb-2  w-[100%] placeholder-shown:bg-white_gray text-dark border border-dark bg-white ${
             errors[name] ? 'border-error border border-style:solid' : 'border'
           }`}
           type={type}
