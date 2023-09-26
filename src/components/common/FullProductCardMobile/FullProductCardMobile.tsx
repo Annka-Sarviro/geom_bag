@@ -55,7 +55,7 @@ const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
         {d.title.article}
         {data.article}
       </Paragraph>
-      <Paragraph centered variantFontSize="text" className="!text-accent mb-3">
+      <Paragraph centered variantFontSize="text" className="!text-xl mb-3">
         {data.price} {d.title.price}
       </Paragraph>
 
