@@ -55,7 +55,7 @@ const ProductCard = ({ item }: any) => {
           {item.article}
         </Paragraph>
 
-        <Paragraph className="!text-accent !font-semibold mt-[auto]">{item.price} грн</Paragraph>
+        <Paragraph className="!text-2xl mt-[auto]">{item.price} грн</Paragraph>
       </div>
 
       {isModalOpen && (

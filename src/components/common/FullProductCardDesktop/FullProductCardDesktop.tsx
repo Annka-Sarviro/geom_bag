@@ -104,12 +104,12 @@ const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => 
               )}
             </div>
           </div>
-          <Paragraph className="!text-accent">
+          <Paragraph className="!text-2xl">
             {data.price} {d.title.price}
           </Paragraph>
         </div>
         <div className="flex items-center gap-x-6">
-          <Slider {...settings1} asNavFor={nav2} ref={slider1} className="w-[400px]">
+          <Slider {...settings1} asNavFor={nav2} ref={slider1} className="w-[440px]">
             {data.image.map((item: any, ind: number) => (
               <DatoImage data={item?.responsiveImage} key={ind} />
             ))}
