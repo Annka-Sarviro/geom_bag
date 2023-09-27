@@ -22,7 +22,7 @@ const OrderForm = ({ item, setIsModalOpen }: any) => {
           <Paragraph className="" centered>
             {item.name}
           </Paragraph>
-          <Paragraph className=" !text-accent" centered>
+          <Paragraph className="!text-dark" centered>
             {item.price} {d.price}
           </Paragraph>
         </div>

@@ -75,7 +75,7 @@ const Header = ({ contacts }: ContactsListProps) => {
               label={header.buttons.mobileMenu.label.close}
               className="flex items-center justify-center text-primary  xl:hidden"
             >
-              <CloseMenuIcon width={40} height={40} className="h-10 w-10" />
+              <CloseMenuIcon width={40} height={40} className="h-10 w-10 fill-dark" />
             </IconButton>
           ) : (
             <IconButton
