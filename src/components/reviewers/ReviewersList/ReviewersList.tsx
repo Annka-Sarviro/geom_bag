@@ -8,10 +8,9 @@ const ReviewersList = ({ data }: any) => {
   const settings = {
     infinite: true,
     speed: 500,
-    adaptiveHeight: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     nextArrow: <SampleNextArrow />,

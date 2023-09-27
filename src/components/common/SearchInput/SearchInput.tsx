@@ -35,7 +35,7 @@ const SearchInput = ({ setNavbarOpen }: any) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center">
+      <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center relative">
         <IconButton
           label={data.buttons.searchButton.label}
           onClick={handleSubmit}

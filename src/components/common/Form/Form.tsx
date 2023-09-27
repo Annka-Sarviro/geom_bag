@@ -67,7 +67,7 @@ const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: any) 
     <div className="relative">
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         {d.fields.map((field, ind) => (
-          <div key={ind}>
+          <div key={ind} className="mb-2 ">
             <Paragraph variantFontSize="text">{field.label}</Paragraph>
             <FormInput
               key={ind}
@@ -78,7 +78,7 @@ const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: any) 
             />
           </div>
         ))}
-        <Button type="submit" className="mx-auto" disabled={isSending ? true : false}>
+        <Button type="submit" className="mx-auto mt-4" disabled={isSending ? true : false}>
           {isSending ? d.button.sending : d.button.text}
         </Button>
       </form>

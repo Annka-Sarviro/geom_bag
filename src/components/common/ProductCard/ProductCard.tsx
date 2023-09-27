@@ -39,7 +39,7 @@ const ProductCard = ({ item }: any) => {
   return (
     <>
       <div
-        className="w-full  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 cursor-pointer"
+        className="w-full mx-auto max-w-[300px]  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 cursor-pointer"
         onClick={handleClick}
       >
         <div className="mb-2">
