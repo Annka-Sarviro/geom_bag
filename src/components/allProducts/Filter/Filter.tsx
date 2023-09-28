@@ -2,8 +2,9 @@ import { useGroupContext } from '@/app/context';
 import Button from '@/components/button/Button/';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import { useEffect, useState } from 'react';
+import { FilterProps, FiltersProps } from './Filter.props';
 
-const Filter = ({ filters, setPageCount, setDisabled }: any) => {
+const Filter = ({ filters, setPageCount, setDisabled }: FilterProps) => {
   const [current, setCurrent] = useState('all');
   const { groupFilter, setGroupFilter } = useGroupContext();
 
@@ -27,7 +28,7 @@ const Filter = ({ filters, setPageCount, setDisabled }: any) => {
 
   return (
     <ul className="grid smOnly:grid-cols-3 md:grid-cols-4 xl:w-[800px] mx-auto mb-5 md:mb-10">
-      {filters.map((item: any, ind: any) => {
+      {filters.map((item: FiltersProps, ind: number) => {
         return (
           <Button
             onClick={handleClick}
@@ -36,7 +37,6 @@ const Filter = ({ filters, setPageCount, setDisabled }: any) => {
             className={`${ind === 0 ? 'smOnly:col-start-1 smOnly:col-end-4 ' : ''} !px-2 mx-auto ${
               current === item.id ? '!border-dark' : '!border-transparent'
             }`}
-            // className={`${mode ? '!border-transparent' : ' !border-dark'} !px-2`}
           >
             <Paragraph variant="dark" variantFontSize="text" id={item.id} className="{`}">
               {item.name}

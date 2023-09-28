@@ -1,7 +1,8 @@
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title/Title';
+import { DeliveryProps } from './Delivery.props';
 
-const Delivery = ({ data }: any) => {
+const Delivery = ({ data }: DeliveryProps) => {
   return (
     <div className="container">
       <Title tag="h2">{data.title}</Title>

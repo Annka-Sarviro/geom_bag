@@ -1,7 +1,8 @@
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Link from 'next/link';
+import { ReviewersCardProps } from './ReviewersCard.props';
 
-const ReviewersCard = ({ item }: any) => {
+const ReviewersCard = ({ item }: ReviewersCardProps) => {
   return (
     <Link
       target={item.link ? 'blank' : ''}

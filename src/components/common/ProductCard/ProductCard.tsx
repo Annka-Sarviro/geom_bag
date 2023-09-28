@@ -12,8 +12,10 @@ import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
 import FullProductCardDesktop from '../FullProductCardDesktop';
 import FullProductCardMobile from '../FullProductCardMobile/FullProductCardMobile';
+import { ProductCardProps } from './ProductCard.props';
 
-const ProductCard = ({ item }: any) => {
+const ProductCard = (props: ProductCardProps) => {
+  const item = props.item;
   const { less1040px } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCardOPen, setIsCardOpen] = useState(false);

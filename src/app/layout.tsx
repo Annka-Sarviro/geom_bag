@@ -10,6 +10,7 @@ import { request } from '@/lib/datocms';
 
 import Footer from '@/layout/Footer/Footer';
 import Header from '@/layout/Header/Header';
+import { LayoutHomeProps } from './layout.props';
 
 const noto = Noto_Sans({
   subsets: ['cyrillic', 'latin'],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 const getHomepageContent = async () => await request(query);
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const data: any = await getHomepageContent();
+  const data: LayoutHomeProps = (await getHomepageContent()) as LayoutHomeProps;
   const contacts = data?.contact;
   return (
     <html lang="en">

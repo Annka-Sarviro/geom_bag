@@ -3,8 +3,10 @@ import { SampleNextArrow } from '@/components/slider/SampleNextArrow';
 import { SamplePrevArrow } from '@/components/slider/SamplePrevArrow';
 import Slider from 'react-slick';
 
+import { ProductCardProp } from '@/app/page.props';
 import Paragraph from '@/components/typography/Paragraph';
 import d from '@/data/new_products.json';
+import { ProductsListProps } from './ProductsList.props';
 
 const getSlideShowCount = (cardCount: number) => {
   if (cardCount === 0) {
@@ -13,10 +15,10 @@ const getSlideShowCount = (cardCount: number) => {
   return cardCount < 3 ? cardCount : 3;
 };
 
-const ProductsList = ({ data }: any) => {
+const ProductsList = ({ data }: ProductsListProps) => {
   const cardCount = data.length;
   const slideShowCount = getSlideShowCount(cardCount);
-  console.log(slideShowCount);
+
   const settings = {
     infinite: true,
     speed: 500,
@@ -63,7 +65,7 @@ const ProductsList = ({ data }: any) => {
     <>
       {cardCount > 0 ? (
         <Slider {...settings}>
-          {data.map((item: any) => (
+          {data.map((item: ProductCardProp) => (
             <ProductCard item={item} key={item.id} />
           ))}
         </Slider>

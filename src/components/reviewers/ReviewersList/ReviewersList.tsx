@@ -1,10 +1,12 @@
 'use client';
 import { SampleNextArrow } from '@/components/slider/SampleNextArrow';
 import { SamplePrevArrow } from '@/components/slider/SamplePrevArrow';
+import { ReviewrsCardProps } from '@/sections/Reviewers/Reviewers.props';
 import Slider from 'react-slick';
 import ReviewersCard from '../ReviewersCard';
+import { ReviewersListProps } from './ReviewersList.props';
 
-const ReviewersList = ({ data }: any) => {
+const ReviewersList = ({ data }: ReviewersListProps) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -48,7 +50,7 @@ const ReviewersList = ({ data }: any) => {
   };
   return (
     <Slider {...settings}>
-      {data.map((item: any, ind: number) => (
+      {data.map((item: ReviewrsCardProps, ind: number) => (
         <ReviewersCard item={item} key={ind} />
       ))}
     </Slider>
