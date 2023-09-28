@@ -1,3 +1,9 @@
-type FormInputs = Record<string, object>;
+export type FormInputs = Record<string, object>;
 
-export default FormInputs;
+export interface FormProps {
+  orderName: string;
+  price: string;
+
+  setIsModalOpen: (isModalOpen: boolean) => void;
+  setIsNotificationOpen: (isNotificationOpen: boolean) => void;
+}

@@ -7,8 +7,9 @@ import MaterialsList from '@/components/materials/MaterialsList';
 import Title from '@/components/typography/Title/';
 
 import d from '@/data/materials.json';
+import { MaterialProps } from './Materials.props';
 
-const Materials = ({ data }: any) => {
+const Materials = ({ data }: MaterialProps) => {
   const { less768px } = useBreakpoints();
 
   return (

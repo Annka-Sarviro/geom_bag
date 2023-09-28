@@ -3,12 +3,27 @@ import { SampleNextArrow } from '@/components/slider/SampleNextArrow';
 import { SamplePrevArrow } from '@/components/slider/SamplePrevArrow';
 import Slider from 'react-slick';
 
-const ProductsList = ({ data }: any) => {
+import { ProductCardProp } from '@/app/page.props';
+import Paragraph from '@/components/typography/Paragraph';
+import d from '@/data/new_products.json';
+import { ProductsListProps } from './ProductsList.props';
+
+const getSlideShowCount = (cardCount: number) => {
+  if (cardCount === 0) {
+    return;
+  }
+  return cardCount < 3 ? cardCount : 3;
+};
+
+const ProductsList = ({ data }: ProductsListProps) => {
+  const cardCount = data.length;
+  const slideShowCount = getSlideShowCount(cardCount);
+
   const settings = {
     infinite: true,
     speed: 500,
     adaptiveHeight: false,
-    slidesToShow: 3,
+    slidesToShow: slideShowCount,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -19,7 +34,7 @@ const ProductsList = ({ data }: any) => {
       {
         breakpoint: 1080,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: slideShowCount,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
@@ -29,7 +44,7 @@ const ProductsList = ({ data }: any) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: slideShowCount,
           slidesToScroll: 1,
           dots: false,
           arrows: true,
@@ -47,11 +62,17 @@ const ProductsList = ({ data }: any) => {
     ],
   };
   return (
-    <Slider {...settings}>
-      {data.map((item: any) => (
-        <ProductCard item={item} key={item.id} />
-      ))}
-    </Slider>
+    <>
+      {cardCount > 0 ? (
+        <Slider {...settings}>
+          {data.map((item: ProductCardProp) => (
+            <ProductCard item={item} key={item.id} />
+          ))}
+        </Slider>
+      ) : (
+        <Paragraph centered>{d.noItem}</Paragraph>
+      )}
+    </>
   );
 };
 

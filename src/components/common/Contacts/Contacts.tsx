@@ -21,7 +21,7 @@ const Contacts = (props: ContactsListProps) => {
       <li>
         <a
           href={`tel:${contacts.tel}`}
-          className="flex gap-x-2  hover:text-accent hover:fill-accent duration-300"
+          className="flex gap-x-2 text-dark  hover:text-accent hover:fill-accent duration-300"
           target="blank"
           rel="noopener noreferrer nofollow"
         >
@@ -32,7 +32,7 @@ const Contacts = (props: ContactsListProps) => {
       <li>
         <a
           href={contacts.telegram}
-          className="flex gap-x-3 hover:text-accent hover:fill-accent duration-300"
+          className="flex gap-x-3 text-dark hover:text-accent hover:fill-accent duration-300"
           target="blank"
           rel="noopener noreferrer nofollow"
         >

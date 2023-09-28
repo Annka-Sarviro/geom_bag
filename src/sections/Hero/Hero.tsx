@@ -4,6 +4,7 @@ import LinkButton from '@/components/button/LinkButton';
 import Paragraph from '@/components/typography/Paragraph';
 import Title from '@/components/typography/Title';
 import useBreakpoints from '@/hooks/useBreakpoints';
+import Image from 'next/image';
 import { Image as DatoImage } from 'react-datocms';
 
 import d from '@/data/hero.json';
@@ -11,47 +12,55 @@ import d from '@/data/hero.json';
 import { HeroProps } from './Hero.props';
 
 const Hero = (data: HeroProps) => {
-  const { title, description, buttonText, image, name, subtitle } = data;
-  const { bigger940px } = useBreakpoints();
+  const { title, buttonText, image, subtitle } = data;
+  const { bigger840px } = useBreakpoints();
 
   return (
     <>
-      <div
-        className={`mx-auto picture_thumb ${
-          bigger940px ? ' h-[calc(100vh_-_150px)] flex ' : ''
-        }  w-full overflow-hidden`}
-      >
-        <div className={`${bigger940px ? '  object-cover ' : 'w-[auto] h-full'} overflow-hidden `}>
+      {bigger840px ? (
+        <div className="flex basis-1/2 relative h-[875px]">
+          <div className=" w-full h-full relative overflow-hidden">
+            <Image
+              src={image[0]?.url}
+              alt={image[0].alt || ''}
+              sizes="50vw"
+              priority={true}
+              fill
+              className=" object-cover object-center hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
+            />
+          </div>
+          <div className=" w-full h-full flex flex-col">
+            <div className=" basis-7/12 relative overflow-hidden">
+              <Image
+                src={image[1].url}
+                alt={image[1].alt || ''}
+                fill
+                sizes="50vw"
+                priority={true}
+                className=" object-cover object-center hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
+              />
+            </div>
+            <div className=" basis-5/12 relative overflow-hidden">
+              <Image
+                src={image[2].url}
+                alt={image[2].alt || ''}
+                fill
+                sizes="50vw"
+                priority={true}
+                className=" object-cover object-center hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100"
+              />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="w-full h-full">
           <DatoImage
             data={image[0].responsiveImage}
-            className={`${
-              bigger940px ? 'min-w-full' : ' !w-auto max-w-[100%]'
-            } h-full  scale-[1.0] hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100`}
+            className={`w-full h-full  scale-[1.0] hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100`}
           />
         </div>
-        <div className="flex flex-col">
-          <div
-            className={`${
-              bigger940px ? 'h-3/5 ' : 'hidden'
-            } overflow-hidden flex justify-center items-center `}
-          >
-            <DatoImage
-              data={image[1].responsiveImage}
-              className={`min-h-full hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100`}
-            />
-          </div>
-          <div
-            className={`${
-              bigger940px ? 'h-2/5 ' : 'hidden'
-            } overflow-hidden   !object-cover  flex justify-center items-center`}
-          >
-            <DatoImage
-              data={image[2].responsiveImage}
-              className={`min-h-full hover:scale-[1.1] duration-1000 brightness-50 saturate-75 hover:brightness-90 hover:saturate-100`}
-            />
-          </div>
-        </div>
-      </div>
+      )}
+
       <div className=" absolute left-0 right-0 bottom-10 container flex items-end pb-10 xl:pb-20 smOnly:justify-center md:left-[calc(50%_-_378px)] xl:left-[calc(50%_-_634px)] md:right-auto md:w-fit">
         <div className="relative z-10 ">
           <Title tag="h1" variant="light" className="mb-0 ">
@@ -60,7 +69,13 @@ const Hero = (data: HeroProps) => {
           <Paragraph variant="hero" className="mb-14 md:mb-9">
             {subtitle}
           </Paragraph>
-          <LinkButton scroll href={d.button.href} variant="secondary" offset={-80}>
+          <LinkButton
+            scroll
+            href={d.button.href}
+            variant="secondary"
+            offset={-80}
+            className=" smOnly:mx-auto"
+          >
             {buttonText}
           </LinkButton>
         </div>

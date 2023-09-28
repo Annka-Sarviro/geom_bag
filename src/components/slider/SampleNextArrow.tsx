@@ -1,4 +1,10 @@
-export function SampleNextArrow(props: any) {
+interface SampleNextArrowProps {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+}
+
+export function SampleNextArrow(props: SampleNextArrowProps) {
   const { className, style, onClick } = props;
   return (
     <div

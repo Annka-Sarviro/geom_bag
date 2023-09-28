@@ -11,14 +11,20 @@ import Paragraph from '@/components/typography/Paragraph/';
 import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
+import { FullProductCardDesktopProps, SliderProp } from './FullProductCardDesktop.props';
 
-const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
-  const [nav1, setNav1] = useState<any>(null);
+const FullProductCardDesktop = ({
+  data,
+  setIsCardOpen,
+  setIsFormOpen,
+}: FullProductCardDesktopProps) => {
+  const [nav1, setNav1] = useState<any | null>(null);
   const [nav2, setNav2] = useState<any>(null);
-  const [imgCount, setImgCount] = useState<any>(null);
+  const [imgCount, setImgCount] = useState<number>(0);
 
   const slider1 = useRef<Slider | null>(null);
   const slider2 = useRef<Slider | null>(null);
+
   const length = data.image.length;
   useEffect(() => {
     if (!nav1 && !nav2) {
@@ -104,13 +110,13 @@ const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => 
               )}
             </div>
           </div>
-          <Paragraph className="!text-accent">
+          <Paragraph className="!text-2xl">
             {data.price} {d.title.price}
           </Paragraph>
         </div>
         <div className="flex items-center gap-x-6">
-          <Slider {...settings1} asNavFor={nav2} ref={slider1} className="w-[400px]">
-            {data.image.map((item: any, ind: number) => (
+          <Slider {...settings1} asNavFor={nav2} ref={slider1} className="w-[440px]">
+            {data.image.map((item: SliderProp, ind: number) => (
               <DatoImage data={item?.responsiveImage} key={ind} />
             ))}
           </Slider>
@@ -120,7 +126,7 @@ const FullProductCardDesktop = ({ data, setIsCardOpen, setIsFormOpen }: any) => 
             ref={slider2}
             className="cardVerticalSlider w-[80px] py-2 cursor-pointer"
           >
-            {data.image.map((item: any, ind: number) => (
+            {data.image.map((item: SliderProp, ind: number) => (
               <DatoImage data={item?.responsiveImage} key={ind} />
             ))}
           </Slider>

@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  images: {
+    domains: ['www.datocms-assets.com'],
+  },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.('.svg'));
     config.module.rules.push(

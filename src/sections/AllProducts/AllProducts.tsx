@@ -1,6 +1,7 @@
 'use client';
 
 import { useFilterContext, useGroupContext } from '@/app/context';
+import { ProductCardProp } from '@/app/page.props';
 import { useEffect, useState } from 'react';
 
 import AllProductsList from '@/components/allProducts/AllProductsList';
@@ -12,14 +13,15 @@ import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
 import d from '@/data/all_products.json';
 import Close from '../../../public/svg/close.svg';
+import { AllProductsProps } from './AllProducts.props';
 
-const AllProducts = ({ data }: any) => {
+const AllProducts = ({ data }: AllProductsProps) => {
   const [pageCount, setPageCount] = useState(1);
   const [disabled, setDisabled] = useState(false);
-  const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState<ProductCardProp[]>([]);
   const { searchfilter, setSearchfilter } = useFilterContext();
   const { groupFilter, setGroupFilter } = useGroupContext();
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState<ProductCardProp[]>([]);
 
   const cardQuantity = 8;
   const allPageCount = data.length / cardQuantity;
@@ -33,13 +35,13 @@ const AllProducts = ({ data }: any) => {
   useEffect(() => {
     groupFilter === 'all'
       ? setFilteredData(data)
-      : setFilteredData(data.filter((item: any) => item.category === groupFilter));
+      : setFilteredData(data.filter((item: ProductCardProp) => item.category === groupFilter));
   }, [data, groupFilter]);
 
   useEffect(() => {
     if (searchfilter) {
       const filtered = filteredData.filter(
-        (item: any) =>
+        (item: ProductCardProp) =>
           item.name.toLowerCase().includes(searchfilter.toLowerCase().trim()) ||
           item.article.toLowerCase().includes(searchfilter.toLowerCase().trim())
       );
@@ -67,28 +69,15 @@ const AllProducts = ({ data }: any) => {
         setDisabled={setDisabled}
         setSearchfilter={setSearchfilter}
       />
+
       <SearchInput />
       {cardData.length === 0 || !data ? (
         <div className="flex justify-center items-center  mt-4">
-          <Paragraph variant="dark" className="text-center">
-            {d.nullSearch.start} &quot;{searchfilter}&quot; {d.nullSearch.end}
-            {d.errorText}
-          </Paragraph>
-          <IconButton
-            label={d.button.resetsearch}
-            onClick={() => setSearchfilter('')}
-            className="ml-4"
-          >
-            <Close className="h-8 w-8 fill-accent" />
-          </IconButton>
-        </div>
-      ) : (
-        <>
-          {searchfilter && (
-            <div className="flex justify-center items-center  mt-4">
-              <Paragraph variant="dark" className="text-center">
-                {d.searchText} <span>&quot;</span>
-                {searchfilter} <span>&quot;</span>
+          {searchfilter.length > 0 ? (
+            <>
+              <Paragraph variant="dark" centered>
+                {d.nullSearch.start} &quot;{searchfilter}&quot; {d.nullSearch.end}
+                {d.errorText}
               </Paragraph>
               <IconButton
                 label={d.button.resetsearch}
@@ -97,6 +86,30 @@ const AllProducts = ({ data }: any) => {
               >
                 <Close className="h-8 w-8 fill-accent" />
               </IconButton>
+            </>
+          ) : (
+            <Paragraph centered variant="dark">
+              {d.nodata}
+            </Paragraph>
+          )}
+        </div>
+      ) : (
+        <>
+          {searchfilter && (
+            <div className="relative">
+              <div className="flex justify-center items-center  mt-4 absolute inset-x-0 bottom-[-30px]">
+                <Paragraph variant="dark" centered>
+                  {d.searchText} <span>&quot;</span>
+                  {searchfilter} <span>&quot;</span>
+                </Paragraph>
+                <IconButton
+                  label={d.button.resetsearch}
+                  onClick={() => setSearchfilter('')}
+                  className="ml-4"
+                >
+                  <Close className="h-8 w-8 fill-accent" />
+                </IconButton>
+              </div>
             </div>
           )}
           <AllProductsList data={cardData} />

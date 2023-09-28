@@ -2,8 +2,9 @@ import d from '@/data/advantages.json';
 
 import Paragraph from '@/components/typography/Paragraph/';
 import Title from '@/components/typography/Title/';
+import { AdvantagesProps } from './Advantages.props';
 
-const Advantages = ({ data }: any) => {
+const Advantages = ({ data }: AdvantagesProps) => {
   return (
     <div className="container ">
       <div className=" flex flex-col gap-y-3 md:gap-y-8 xl:gap-y-14 md:w-[360px] md:ml-auto xl:w-[468px]">

@@ -9,8 +9,14 @@ import Paragraph from '@/components/typography/Paragraph/';
 import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
+import { SliderProp } from '../FullProductCardDesktop/FullProductCardDesktop.props';
+import { FullProductCardMobileProps } from './FullProductCardMobile.props';
 
-const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
+const FullProductCardMobile = ({
+  data,
+  setIsCardOpen,
+  setIsFormOpen,
+}: FullProductCardMobileProps) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -43,7 +49,7 @@ const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
   return (
     <div className="w-[80vw]">
       <Slider {...settings} className="fullCardSlider">
-        {data.image.map((item: any, ind: number) => (
+        {data.image.map((item: SliderProp, ind: number) => (
           <DatoImage data={item?.responsiveImage} key={ind} />
         ))}
       </Slider>
@@ -55,7 +61,7 @@ const FullProductCardMobile = ({ data, setIsCardOpen, setIsFormOpen }: any) => {
         {d.title.article}
         {data.article}
       </Paragraph>
-      <Paragraph centered variantFontSize="text" className="!text-accent mb-3">
+      <Paragraph centered variantFontSize="text" className="!text-xl mb-3">
         {data.price} {d.title.price}
       </Paragraph>
 

@@ -1,15 +1,17 @@
 'use client';
 
-import { useGroupContext } from '@/app/context';
+import { useFilterContext, useGroupContext } from '@/app/context';
 import Paragraph from '@/components/typography/Paragraph';
 import Link from 'next/link';
 import { Image as DatoImage } from 'react-datocms';
+import { GroupMenuCardProps } from './GroupMenuCard.props';
 
-const GroupMenuCard = ({ item, title, id }: any) => {
-  const data = item.responsiveImage.src;
+const GroupMenuCard = ({ item, title, id }: GroupMenuCardProps) => {
   const { groupFilter, setGroupFilter } = useGroupContext();
+  const { searchfilter, setSearchfilter } = useFilterContext();
 
   const handleClick = () => {
+    setSearchfilter('');
     return setGroupFilter(id);
   };
 

@@ -12,8 +12,10 @@ import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
 import FullProductCardDesktop from '../FullProductCardDesktop';
 import FullProductCardMobile from '../FullProductCardMobile/FullProductCardMobile';
+import { ProductCardProps } from './ProductCard.props';
 
-const ProductCard = ({ item }: any) => {
+const ProductCard = (props: ProductCardProps) => {
+  const item = props.item;
   const { less1040px } = useBreakpoints();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCardOPen, setIsCardOpen] = useState(false);
@@ -39,13 +41,13 @@ const ProductCard = ({ item }: any) => {
   return (
     <>
       <div
-        className="w-full  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 cursor-pointer"
+        className="w-full mx-auto max-w-[300px]  flex flex-col items-stretch text-center md:place-self-stretch  px-5 pb-7 cursor-pointer"
         onClick={handleClick}
       >
-        <div className="overflow-hidden">
+        <div className="mb-2">
           <DatoImage
             data={item.image[0].responsiveImage}
-            className="mx-auto hover:scale-[1.2] duration-1000"
+            className="mx-auto hover:scale-[1.1] duration-1000"
           />
         </div>
         <Title variant="dark" tag="h3" className="text-center line-clamp-3">
@@ -55,7 +57,7 @@ const ProductCard = ({ item }: any) => {
           {item.article}
         </Paragraph>
 
-        <Paragraph className="!text-accent !font-semibold mt-[auto]">{item.price} грн</Paragraph>
+        <Paragraph className="!text-2xl mt-[auto]">{item.price} грн</Paragraph>
       </div>
 
       {isModalOpen && (

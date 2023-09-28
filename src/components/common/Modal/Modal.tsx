@@ -4,8 +4,9 @@ import Close from '../../../../public/svg/close.svg';
 
 import IconButton from '@/components/button/IconButton';
 import d from '@/data/modal.json';
+import { ModalProps } from './Modal.props';
 
-const Modal = ({ children, ModalClose, setIsModalOpen }: any) => {
+const Modal = ({ children, ModalClose, setIsModalOpen }: ModalProps) => {
   const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget === e.target) {
       ModalClose();

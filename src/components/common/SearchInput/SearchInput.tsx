@@ -5,8 +5,9 @@ import IconButton from '@/components/button/IconButton';
 import data from '@/data/header.json';
 import { scroller } from 'react-scroll';
 import SearchSvg from '.././../../../public/svg/search.svg';
+import { SearchInputProps } from './SearchInput.props';
 
-const SearchInput = ({ setNavbarOpen }: any) => {
+const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
   const { searchfilter, setSearchfilter } = useFilterContext();
   const [searchParams, setSearchParams] = useState();
   const query = searchParams;
@@ -35,7 +36,7 @@ const SearchInput = ({ setNavbarOpen }: any) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center">
+      <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center relative">
         <IconButton
           label={data.buttons.searchButton.label}
           onClick={handleSubmit}

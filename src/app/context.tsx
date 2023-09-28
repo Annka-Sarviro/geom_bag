@@ -3,12 +3,12 @@ import React, { createContext, useContext, useState } from 'react';
 
 type FilterContextType = {
   searchfilter: string;
-  setSearchfilter: any;
+  setSearchfilter: (value: string) => void;
 };
 
 type GroupContextType = {
   groupFilter: string;
-  setGroupFilter: any;
+  setGroupFilter: (value: string) => void;
 };
 
 const FilterContext = createContext<FilterContextType | undefined>(undefined);

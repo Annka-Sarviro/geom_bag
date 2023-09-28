@@ -1,7 +1,9 @@
 import MaterialsCardDesktop from '@/components/common/MaterialsCardDesktop';
+import { MaterialsCardProps } from '@/components/common/MaterialsCardDesktop/MaterialsCardDesktop.props';
 import Slider from 'react-slick';
+import { MaterialsListProps } from './MaterialsList.props';
 
-const MaterialsList = ({ data }: any) => {
+const MaterialsList = ({ data }: MaterialsListProps) => {
   const settings = {
     infinite: true,
     speed: 1000,
@@ -16,7 +18,7 @@ const MaterialsList = ({ data }: any) => {
   };
   return (
     <Slider {...settings}>
-      {data.map((item: any, ind: number) => {
+      {data.map((item: MaterialsCardProps, ind: number) => {
         return <MaterialsCardDesktop item={item} key={ind} />;
       })}
     </Slider>

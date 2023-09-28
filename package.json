@@ -15,6 +15,7 @@
     "@types/react": "18.2.19",
     "@types/react-dom": "18.2.7",
     "@types/react-scroll": "^1.8.7",
+    "@vercel/analytics": "^1.0.2",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "eslint": "8.46.0",
@@ -31,6 +32,7 @@
     "react-media-hook": "^0.5.0",
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
+    "sharp": "^0.32.6",
     "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
