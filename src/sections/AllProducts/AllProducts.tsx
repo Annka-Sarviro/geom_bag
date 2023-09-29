@@ -27,12 +27,6 @@ const AllProducts = ({ data }: AllProductsProps) => {
   const allPageCount = data.length / cardQuantity;
 
   useEffect(() => {
-    if (cardData.length < cardQuantity) {
-      setDisabled(true);
-    } else allPageCount > pageCount ? setDisabled(false) : setDisabled(true);
-  }, [data, pageCount, allPageCount, cardData]);
-
-  useEffect(() => {
     groupFilter === 'all'
       ? setFilteredData(data)
       : setFilteredData(data.filter((item: ProductCardProp) => item.category === groupFilter));
@@ -54,6 +48,12 @@ const AllProducts = ({ data }: AllProductsProps) => {
     }
   }, [filteredData, pageCount, searchfilter]);
 
+  useEffect(() => {
+    if (cardData.length < cardQuantity) {
+      setDisabled(true);
+    } else allPageCount > pageCount ? setDisabled(false) : setDisabled(true);
+  }, [data, pageCount, allPageCount, cardData]);
+
   const handleClick = () => {
     setPageCount(pageCount + 1);
   };
@@ -71,6 +71,7 @@ const AllProducts = ({ data }: AllProductsProps) => {
       />
 
       <SearchInput />
+
       {cardData.length === 0 || !data ? (
         <div className="flex justify-center items-center  mt-4">
           {searchfilter.length > 0 ? (
@@ -113,10 +114,16 @@ const AllProducts = ({ data }: AllProductsProps) => {
             </div>
           )}
           <AllProductsList data={cardData} />
-
-          <Button variant="secondary" disabled={disabled} className="mx-auto" onClick={handleClick}>
-            {d.button.loadmore}
-          </Button>
+          {!disabled && (
+            <Button
+              variant="secondary"
+              disabled={disabled}
+              className="mx-auto"
+              onClick={handleClick}
+            >
+              {d.button.loadmore}
+            </Button>
+          )}
         </>
       )}
     </div>
