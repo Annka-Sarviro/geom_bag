@@ -6,8 +6,9 @@ import Title from '../typography/Title';
 
 import d from '@/data/form.json';
 import { useState } from 'react';
+import { OrderFormProps } from './OrderForm.props';
 
-const OrderForm = ({ item, setIsModalOpen }: any) => {
+const OrderForm = ({ item, setIsModalOpen }: OrderFormProps) => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   return (
     <div className="w-[80vw] md:max-w-[620px]">

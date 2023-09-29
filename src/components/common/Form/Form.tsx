@@ -6,14 +6,14 @@ import Button from '@/components/button/Button';
 import FormInput from '@/components/common/FormInput';
 import FormNotification from '@/components/common/FormNotification';
 
-import FormInputs from '@/components/common/Form/Form.props';
 import fieldsParams from '@/components/common/Form/fieldsParams';
 import sendToTlg from '@/services/api/sendToTlg';
 
+import { FormProps } from '@/components/common/Form/Form.props';
 import Paragraph from '@/components/typography/Paragraph';
 import d from '@/data/form.json';
 
-const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: any) => {
+const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: FormProps) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [finalMessage, setFinalMessage] = useState<string | null>(null);
@@ -38,7 +38,7 @@ const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: any) 
     storage: isBrowser ? window.sessionStorage : undefined,
   });
 
-  const onSubmitHandler = async (data: FormInputs) => {
+  const onSubmitHandler = async (data: any) => {
     try {
       setIsSending(true);
 

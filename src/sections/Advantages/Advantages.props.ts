@@ -1,16 +1,20 @@
+import { ImageProp } from '@/app/page.props';
+
 export interface AdvantagesProps {
-  description?: string;
-  buttonText?: string;
-  id: number;
-  image?: any;
-  name: string;
-  subtitle?: string;
-  title: string;
-  _seoMetaTags: [[Object]];
+  data: {
+    description?: string;
+    buttonText?: string;
+    id: string;
+    image?: ImageProp[];
+    name: string;
+    subtitle?: string;
+    title: string;
+    _seoMetaTags: any;
+  };
 }
 
 export interface RewiersProps {
-  id: number;
+  id: string;
   link?: string;
   name: string;
   text: string;

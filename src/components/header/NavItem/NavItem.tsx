@@ -22,7 +22,7 @@ export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
               variant="simple"
               offset={item.offset}
               scroll={pathname === '/' || item.id === 'contacts' ? item.scroll : !item.scroll}
-              onClick={() => (isOpen ? setNavbarOpen(false) : null)}
+              onClick={() => (isOpen && setNavbarOpen ? setNavbarOpen(false) : '')}
               className="smOnly:mx-auto"
             >
               {item.name}

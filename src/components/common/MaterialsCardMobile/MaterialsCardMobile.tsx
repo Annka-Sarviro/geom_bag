@@ -1,9 +1,11 @@
 import Paragraph from '@/components/typography/Paragraph';
+import { MaterialsCardProps } from '../MaterialsCardDesktop/MaterialsCardDesktop.props';
+import { MaterialsCardMobileProps } from './MaterialsCardMobile.props';
 
-const MaterialsCardMobile = ({ data }: any) => {
+const MaterialsCardMobile = ({ data }: MaterialsCardMobileProps) => {
   return (
     <ul className="flex flex-col gap-y-6 py-7 materialsMobile px-2.5">
-      {data.map((item: any, ind: number) => {
+      {data.map((item: MaterialsCardProps, ind: number) => {
         return (
           <li key={ind}>
             <Paragraph variantFontSize="text" variant="white">

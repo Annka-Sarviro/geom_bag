@@ -21,7 +21,7 @@ const Hero = (data: HeroProps) => {
         <div className="flex basis-1/2 relative h-[875px]">
           <div className=" w-full h-full relative overflow-hidden">
             <Image
-              src={image[0].url}
+              src={image[0]?.url}
               alt={image[0].alt || ''}
               sizes="50vw"
               priority={true}

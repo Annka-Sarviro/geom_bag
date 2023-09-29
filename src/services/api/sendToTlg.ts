@@ -1,6 +1,16 @@
 import axios from 'axios';
+interface FormData {
+  firstname: string;
+  lastname: string;
+  phone: string;
+  orderName: string;
+  price: string;
+  postname: string;
+  city: string;
+  office: string;
+}
 
-const sendToTlg = async (formData: any) => {
+const sendToTlg = async (formData: FormData) => {
   const tgbot = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
   const chat_id = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
   const URI_API = `https://api.telegram.org/bot${tgbot}/sendMessage`;

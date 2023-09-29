@@ -1,24 +1,26 @@
 'use client';
 import { useState } from 'react';
 
+import { ProductCardProp } from '@/app/page.props';
 import ProductsList from '@/components/newProducts/ProductsList';
+import { NewPropductsProps } from './NewProduct.props';
 
 import Button from '@/components/button/Button';
 import Title from '@/components/typography/Title';
 
 import d from '@/data/new_products.json';
 
-const getNewProducts = (data: any) => {
-  const newData = data.filter((items: any) => items.isnew);
+const getNewProducts = (data: ProductCardProp[]) => {
+  const newData = data.filter((items: ProductCardProp) => items.isnew);
   return newData;
 };
 
-const getTopProducts = (data: any) => {
-  const newData = data.filter((items: any) => items.ispopular);
+const getTopProducts = (data: ProductCardProp[]) => {
+  const newData = data.filter((items: ProductCardProp) => items.ispopular);
   return newData;
 };
 
-const NewProduct = ({ data }: any) => {
+const NewProduct = ({ data }: NewPropductsProps) => {
   const newProduct = getNewProducts(data);
   const topProduct = getTopProducts(data);
 

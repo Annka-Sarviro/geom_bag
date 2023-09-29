@@ -1,11 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-export default function ClientOnlyPortal({ children, selector }: any) {
-  const ref = useRef();
-  const [mounted, setMounted] = useState(false);
+interface ClientOnlyPortalProps {
+  children: ReactNode;
+  selector: string;
+}
+
+export default function ClientOnlyPortal({ children, selector }: ClientOnlyPortalProps) {
+  const ref = useRef<Element | null>(null);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
     ref.current = document.querySelector(selector);
