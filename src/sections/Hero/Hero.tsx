@@ -13,12 +13,16 @@ import { HeroProps } from './Hero.props';
 
 const Hero = (data: HeroProps) => {
   const { title, buttonText, image, subtitle } = data;
-  const { bigger840px } = useBreakpoints();
+  const { bigger840px, bigger1280px } = useBreakpoints();
 
   return (
     <>
       {bigger840px ? (
-        <div className="flex basis-1/2 relative h-[875px]">
+        <div
+          className={`flex basis-1/2 relative h-[875px] ${
+            bigger1280px ? 'h-[900px]' : 'h-[875px]'
+          }`}
+        >
           <div className=" w-full h-full relative overflow-hidden">
             <Image
               src={image[0]?.url}

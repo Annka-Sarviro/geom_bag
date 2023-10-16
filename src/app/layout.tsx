@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const data: LayoutHomeProps = (await getHomepageContent()) as LayoutHomeProps;
   const contacts = data?.contact;
   return (
-    <html lang="en">
+    <html lang="ua">
       <body className={noto.className}>
         <GroupFilterContextProvider>
           <FilterContextProvider>

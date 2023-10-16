@@ -8,7 +8,6 @@ import { Navigation } from '@/components/header/Navigation';
 import Logo from '../Logo';
 
 import { useCloseOnEsc } from '@/hooks';
-import useBreakpoints from '@/hooks/useBreakpoints';
 
 import CloseMenuIcon from '../../../public/svg/close.svg';
 import MobileMenuIcon from '../../../public/svg/menu.svg';
@@ -20,8 +19,8 @@ import header from '@/data/header.json';
 
 const Header = ({ contacts }: ContactsListProps) => {
   const HEIGHT_SCROLL = 80;
-  const { less768px } = useBreakpoints();
   const items = header.nav as ItemProps[];
+  const [windowWidth, setWindowWidth] = useState(768);
 
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -45,6 +44,20 @@ const Header = ({ contacts }: ContactsListProps) => {
       navbarToggleHandler();
     }
   };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    handleWindowResize();
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
   useCloseOnEsc(() => setNavbarOpen(false));
 
   useEffect(() => {
@@ -65,7 +78,7 @@ const Header = ({ contacts }: ContactsListProps) => {
           : 'absolute bg-white '
       }`}
     >
-      {less768px ? (
+      {windowWidth < 768 && (
         <div className=" container  flex justify-between items-center	">
           <Logo width={69} height={46} className="!block w-[69px] h-[46px]" />
 
@@ -104,7 +117,9 @@ const Header = ({ contacts }: ContactsListProps) => {
             </div>
           </div>
         </div>
-      ) : (
+      )}
+
+      {windowWidth > 768 && (
         <div className="container relative ">
           <ContactsList contacts={contacts} setNavbarOpen={setNavbarOpen} />
           <Logo className="!block md:absolute md:top-10 xl:top-4 md:inset-x-0 mdOnly:scale-[0.69]	m-auto" />

@@ -1,8 +1,9 @@
 {
   "title": "Choose group of product",
   "group": [
-    { "name": "Сумки-бананки", "id": "bags" },
+    { "name": "Сумки поясні", "id": "bags" },
     { "name": "Кросс-боді", "id": "crossbody" },
-    { "name": "Чохли", "id": "cover" }
+    { "name": "Чохли для акустики", "id": "cover" },
+    { "name": "Гаманці, органайзери", "id": "wallet" }
   ]
 }
