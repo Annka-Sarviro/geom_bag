@@ -9,16 +9,19 @@ import ViberImg from '../../../../public/svg/viber.svg';
 const Contacts = (props: ContactsListProps) => {
   const contacts = props.contacts;
   const full = props.full;
+
   return (
     <ul
-      className={`flex smOnly:flex-col  smOnly:gap-y-4 smOnly:mb-4 gap-x-12 mdOnly:gap-x-4 ${
-        full ? 'grid grid-rows-2 grid-flow-col gap-y-[13px]' : ''
+      className={` ${
+        full
+          ? 'grid grid-rows-2 grid-flow-col gap-y-[13px] gap-x-5 md:gap-x-24'
+          : 'flex smOnly:flex-col  smOnly:gap-y-4 smOnly:mb-4 gap-x-12 mdOnly:gap-x-4 '
       }`}
     >
       <li>
         <a
           href={`tel:${contacts.tel}`}
-          className="flex gap-x-3  hover:text-accent hover:fill-accent duration-300"
+          className="flex gap-x-2 text-dark  hover:text-accent hover:fill-accent duration-300"
           target="blank"
           rel="noopener noreferrer nofollow"
         >
@@ -29,7 +32,7 @@ const Contacts = (props: ContactsListProps) => {
       <li>
         <a
           href={contacts.telegram}
-          className="flex gap-x-3 hover:text-accent hover:fill-accent duration-300"
+          className="flex gap-x-3 text-dark hover:text-accent hover:fill-accent duration-300"
           target="blank"
           rel="noopener noreferrer nofollow"
         >

@@ -1,0 +1,12 @@
+{
+  "title": {
+    "menu": "Покупцям",
+    "contact": "Контакти"
+  },
+  "links": [
+    { "name": "Всі товари", "link": "/#all_products", "scroll": true },
+    { "name": "Обмін та повернення", "link": "/delivery#payment", "scroll": false },
+    { "name": "Доставка  та оплата", "link": "/delivery#delivery", "scroll": false },
+    { "name": "Договір-оферта", "link": "/offer#offer", "scroll": false }
+  ]
+}

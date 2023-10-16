@@ -8,7 +8,7 @@ import { NavigationProps } from './Navigation.props';
 export const Navigation: FC<NavigationProps> = ({
   list,
   isOpen = false,
-  onItemClick,
+  setNavbarOpen,
   contacts,
 }) => {
   return (
@@ -18,8 +18,8 @@ export const Navigation: FC<NavigationProps> = ({
         isOpen ? 'visibility  opacity-100' : 'invisible top-[120%] opacity-0'
       }`}
     >
-      <ContactsList contacts={contacts} />
-      <NavList onItemClick={onItemClick} list={list} />
+      <ContactsList contacts={contacts} setNavbarOpen={setNavbarOpen} />
+      <NavList setNavbarOpen={setNavbarOpen} list={list} isOpen={isOpen} />
     </nav>
   );
 };

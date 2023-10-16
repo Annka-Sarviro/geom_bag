@@ -1,11 +1,11 @@
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { FC, Key } from 'react';
 
 import LinkButton from '@/components/button/LinkButton/LinkButton';
 import { NavItemProps } from './NavItem.props';
 
-export const NavItem: FC<NavItemProps> = ({ list }) => {
-  const router = useRouter();
+export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
+  const pathname = usePathname();
 
   return (
     <>
@@ -17,7 +17,14 @@ export const NavItem: FC<NavItemProps> = ({ list }) => {
               item.name === 'Новинки' ? 'md:mr-[152px] xl:mr-[382px]' : null
             }`}
           >
-            <LinkButton href={item.id} variant="simple" className="smOnly:mx-auto">
+            <LinkButton
+              href={pathname === '/' || item.id === 'contacts' ? item.id : item.url}
+              variant="simple"
+              offset={item.offset}
+              scroll={pathname === '/' || item.id === 'contacts' ? item.scroll : !item.scroll}
+              onClick={() => (isOpen && setNavbarOpen ? setNavbarOpen(false) : '')}
+              className="smOnly:mx-auto"
+            >
               {item.name}
             </LinkButton>
           </li>

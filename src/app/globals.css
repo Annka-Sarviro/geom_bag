@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -21,3 +23,988 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+/* start advantages section style */
+.advantages {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/advantages/advantages-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .advantages {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/advantages/advantages-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/advantages/advantages-mobile-@1x.webp')
+) {
+  .advantages {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/advantages/advantages-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .advantages {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/advantages/advantages-mobile-@2x.webp');
+    }
+  }
+}
+/* 
+@media screen and (min-width: 480px) {
+  .aboutBg {
+    background-size: 480px 224px;
+    background-position: top left calc(50% - 6px);
+  }
+} */
+
+@media screen and (min-width: 768px) {
+  .advantages {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/advantages/advantages-tablet-@1x.jpg');
+    background-size: 930px 488px;
+    background-position: center left calc(50% - 464px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .advantages {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/advantages/advantages-tablet-@2x.jpg');
+    }
+  }
+
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/advantages/advantages-tablet-@1x.webp')
+  ) {
+    .advantages {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/advantages/advantages-tablet-@2x.webp');
+      background-size: 930px 488px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .advantages {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/advantages/advantages-tablet-@2x.webp');
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .advantages {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/advantages/advantages-desktop-@1x.jpg');
+    background-size: 1220px 480px;
+    background-position: center left calc(50% - 478px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .advantages {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/advantages/advantages-desktop-@2x.jpg');
+    }
+  }
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/advantages/advantages-desktop-@1x.webp')
+  ) {
+    .advantages {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/advantages/advantages-desktop-@2x.webp');
+      background-size: 1220px 480px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .advantages {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/advantages/advantages-desktop-@2x.webp');
+      }
+    }
+  }
+}
+
+/* end advantages section style */
+
+/* start materials section style */
+.materialsMobile {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/materials/materials-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .materialsMobile {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/materials/materials-mobile-@1x.webp')
+) {
+  .materialsMobile {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsMobile {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-mobile-@2x.webp');
+    }
+  }
+}
+
+.materialsDesktop0 {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/materials/materials-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/materials/materials-mobile-@1x.webp')
+) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-mobile-@2x.webp');
+    }
+  }
+}
+/* 
+@media screen and (min-width: 480px) {
+.aboutBg {
+  background-size: 480px 224px;
+  background-position: top left calc(50% - 6px);
+}
+} */
+
+@media screen and (min-width: 768px) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials0-tablet-@1x.jpg');
+    background-size: 768px 488px;
+    background-position: center left calc(50% - 390px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-tablet-@2x.jpg');
+    }
+  }
+
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials0-tablet-@1x.webp')
+  ) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-tablet-@2x.webp');
+      background-size: 768px 488px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop0 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials0-tablet-@2x.webp');
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .materialsDesktop0 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials0-desktop-@1x.jpg');
+    background-size: 1220px 480px;
+    background-position: center left calc(50% - 478px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-desktop-@2x.jpg');
+    }
+  }
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials0-desktop-@1x.webp')
+  ) {
+    .materialsDesktop0 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials0-desktop-@2x.webp');
+      background-size: 1220px 480px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop0 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials0-desktop-@2x.webp');
+      }
+    }
+  }
+}
+/* desktop-1 */
+.materialsDesktop1 {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/materials/materials-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .materialsDesktop1 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/materials/materials-mobile-@1x.webp')
+) {
+  .materialsDesktop1 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop1 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-mobile-@2x.webp');
+    }
+  }
+}
+/* 
+@media screen and (min-width: 480px) {
+.aboutBg {
+  background-size: 480px 224px;
+  background-position: top left calc(50% - 6px);
+}
+} */
+
+@media screen and (min-width: 768px) {
+  .materialsDesktop1 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials1-tablet-@1x.jpg');
+    background-size: 768px 488px;
+    background-position: center left calc(50% - 390px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop1 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials1-tablet-@2x.jpg');
+    }
+  }
+
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials1-tablet-@1x.webp')
+  ) {
+    .materialsDesktop1 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials1-tablet-@2x.webp');
+      background-size: 768px 488px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop1 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials1-tablet-@2x.webp');
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .materialsDesktop1 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials1-desktop-@1x.jpg');
+    background-size: 1220px 480px;
+    background-position: center left calc(50% - 478px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop1 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials1-desktop-@2x.jpg');
+    }
+  }
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials1-desktop-@1x.webp')
+  ) {
+    .materialsDesktop1 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials1-desktop-@2x.webp');
+      background-size: 1220px 480px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop1 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials1-desktop-@2x.webp');
+      }
+    }
+  }
+}
+
+/* materials-2 */
+.materialsDesktop2 {
+  background-image: radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+    url('/img/materials/materials-mobile-@1x.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* background-blend-mode: */
+}
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .materialsDesktop2 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@2x.jpg');
+  }
+}
+@supports (
+  background-image:
+    radial-gradient(
+      122.97% 68.68% at 50% 50%,
+      rgba(29, 29, 29, 0.42) 0%,
+      rgba(29, 29, 29, 0.56) 58.33%,
+      #1d1d1d 100%,
+      #1d1d1d 100%
+    ),
+  url('/img/materials/materials-mobile-@1x.webp')
+) {
+  .materialsDesktop2 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials-mobile-@1x.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop2 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials-mobile-@2x.webp');
+    }
+  }
+}
+/* 
+@media screen and (min-width: 480px) {
+.aboutBg {
+  background-size: 480px 224px;
+  background-position: top left calc(50% - 6px);
+}
+} */
+
+@media screen and (min-width: 768px) {
+  .materialsDesktop2 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials2-tablet-@1x.jpg');
+    background-size: 768px 488px;
+    background-position: center left calc(50% - 390px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop2 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials2-tablet-@2x.jpg');
+    }
+  }
+
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials2-tablet-@1x.webp')
+  ) {
+    .materialsDesktop2 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials2-tablet-@2x.webp');
+      background-size: 768px 488px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop2 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials2-tablet-@2x.webp');
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .materialsDesktop2 {
+    background-image: radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+      url('/img/materials/materials2-desktop-@1x.jpg');
+    background-size: 1220px 480px;
+    background-position: center left calc(50% - 478px);
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .materialsDesktop2 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials2-desktop-@2x.jpg');
+    }
+  }
+  @supports (
+    background-image:
+      radial-gradient(
+        122.97% 68.68% at 50% 50%,
+        rgba(29, 29, 29, 0.42) 0%,
+        rgba(29, 29, 29, 0.56) 58.33%,
+        #1d1d1d 100%,
+        #1d1d1d 100%
+      ),
+    url('/img/materials/materials2-desktop-@1x.webp')
+  ) {
+    .materialsDesktop2 {
+      background-image: radial-gradient(
+          122.97% 68.68% at 50% 50%,
+          rgba(29, 29, 29, 0.42) 0%,
+          rgba(29, 29, 29, 0.56) 58.33%,
+          #1d1d1d 100%,
+          #1d1d1d 100%
+        ),
+        url('/img/materials/materials2-desktop-@2x.webp');
+      background-size: 1220px 480px;
+    }
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      .materialsDesktop2 {
+        background-image: radial-gradient(
+            122.97% 68.68% at 50% 50%,
+            rgba(29, 29, 29, 0.42) 0%,
+            rgba(29, 29, 29, 0.56) 58.33%,
+            #1d1d1d 100%,
+            #1d1d1d 100%
+          ),
+          url('/img/materials/materials2-desktop-@2x.webp');
+      }
+    }
+  }
+}
+/* end materials section style*/
+
+/* SlickSlider */
+.slick-arrow.slick-next,
+.slick-arrow.slick-prev {
+  width: 40px;
+  height: 40px;
+}
+
+.slick-arrow.slick-next {
+  right: -30px;
+}
+.slick-arrow.slick-prev {
+  left: -30px;
+}
+
+.slick-arrow.slick-next::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url('/svg/than.svg');
+}
+
+.slick-arrow.slick-prev::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url('/svg/before.svg');
+}
+
+.materials .slick-slider .slick-dots {
+  position: absolute;
+  bottom: 24px;
+}
+
+.slick-slider .slick-dots li button:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url('/svg/dot.svg');
+}
+.slick-slider .slick-dots .slick-active button:before {
+  background-image: url('/svg/dot-full.svg');
+}
+
+.slick-slider .slick-dots li {
+  margin: 0 12px;
+}
+
+.fullCardSlider.slick-slider .slick-list .slick-track .slick-slide.slick-active.slick-current {
+  text-align: center;
+}
+
+.cardVerticalSlider.slick-slider .slick-arrow.slick-next {
+  right: calc(50% - 20px);
+  bottom: -20px;
+  top: initial;
+  transform: rotate(90deg);
+}
+
+.cardVerticalSlider.slick-slider .slick-arrow.slick-prev {
+  left: calc(50% - 20px);
+  bottom: initial;
+  top: -24px;
+  transform: rotate(90deg);
+}
+
+/*start Logo style*/
+.logo {
+  position: relative;
+  overflow: hidden;
+  /* clip-path: polygon(50% -5%, -8% 100%, 111% 100%); */
+  clip-path: polygon(
+    0% 100%,
+    9% 76%,
+    6% 68%,
+    15% 49%,
+    24% 49%,
+    50% 0%,
+    81% 60%,
+    86% 52%,
+    88% 75%,
+
+    101% 100%
+  );
+}
+
+.logo:hover {
+  scale: 1.02;
+  transition: 0.5s;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5em;
+  height: 100%;
+  background-color: #fff;
+  /* opacity: 0; */
+  transform: translateX(-1em) skewX(143deg);
+}
+
+.logo:hover::before {
+  animation: move-light 1s infinite ease-in-out;
+  /* transform: translateX(12em) skewX(143deg); */
+}
+
+@keyframes move-light {
+  0% {
+    transform: translateX(-1em) skewX(143deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.3;
+  }
+
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(11em) skewX(143deg);
+  }
+}
+
+/* end logo style */

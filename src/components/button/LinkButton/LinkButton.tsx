@@ -11,6 +11,7 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
   href,
   children,
   scroll,
+  offset,
   className,
   onClick,
   onKeyUp,
@@ -28,18 +29,18 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
         href=""
         spy
         smooth={true}
-        offset={-40}
-        duration={100}
+        offset={offset}
+        duration={600}
         activeClass="active"
         className={cn(
-          'flex w-full max-w-[220px] items-center justify-center border-2 border-solid py-[10px] px-9 text-xl',
+          'flex w-full max-w-[230px] items-center justify-center border border-solid py-[10px] px-9 text-xl',
           className,
           !disabled && {
             [' border-dark bg-dark text-white duration-300 hover:bg-white focus:bg-white hover:text-dark focus:text-dark']:
               variant == 'primary',
-            [' border-whit bg-white text-dark duration-300 hover:bg-dark focus:bg-dark hover:text-white focus:text-white hover:border-dark focus:border-dark']:
+            [' border-white bg-white text-dark duration-300 hover:bg-dark focus:bg-dark hover:text-white focus:text-white hover:border-dark focus:border-dark']:
               variant == 'secondary',
-            ['!max-w-[fit-content] !justify-start border-none bg-transparent py-0 px-0 text-dark duration-300 hover:text-accent focus:text-accent']:
+            ['!max-w-[fit-content] !justify-start border-none bg-transparent !py-0 !px-0 text-dark duration-300 hover:text-accent focus:text-accent']:
               variant == 'simple',
           },
           disabled && {
@@ -60,6 +61,7 @@ const LinkButton: FC<LinkButtonProps & LinkProps> = ({
   return (
     <Link legacyBehavior href={href} {...disabledProps}>
       <a
+        onClick={onClick}
         className={cn(
           'flex w-full max-w-[240px] cursor-pointer items-center rounded-sm border-2 border-solid p-[10px] text-xl',
           className,

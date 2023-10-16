@@ -7,13 +7,11 @@ import { LogoProps } from './Logo.props';
 
 const Logo: FC<LogoProps> = ({ sticky, width = 140, height = 94, className }) => {
   return (
-    <Link href={routes.HOME} className={cn('block w-fit', { ['py-4']: sticky }, className)}>
-      <LogoImg
-        width={width}
-        height={height}
-        aria-label="Логотип сайту"
-        className="hover:scale-125"
-      />
+    <Link
+      href={routes.HOME}
+      className={cn('logo relative block w-fit', { ['py-4']: sticky }, className)}
+    >
+      <LogoImg width={width} height={height} aria-label="Логотип сайту" className="" />
     </Link>
   );
 };

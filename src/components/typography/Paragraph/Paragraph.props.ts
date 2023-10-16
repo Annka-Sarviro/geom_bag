@@ -6,4 +6,6 @@ export interface ParagraphProps {
   className?: string;
   children: ReactNode;
   paragraphRef?: RefObject<HTMLParagraphElement>;
+  id?: string;
+  centered?: boolean;
 }
