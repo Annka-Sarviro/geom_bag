@@ -48,10 +48,10 @@ const deliveryPage = async () => {
       <Section variant="primary" id="payment" className="!pt-[120px] md:!pt-[220px]">
         <Payment data={paymentData} />
       </Section>
-      <Section variant="primary" id="delivery" className="">
+      <Section variant="primary" id="delivery" className="delivery smOnly:!py-10">
         <Delivery data={deliveryData} />
       </Section>
-      <Section variant="primary" id="return" className="">
+      <Section variant="primary" id="return" className="return smOnly:!py-10">
         <Return data={returnData} />
       </Section>
     </main>

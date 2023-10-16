@@ -7,7 +7,7 @@ query Home {
       tag
     }
   }
-  allProductCards (filter: {availability: {eq: "true"}}) {
+  allProductCards (filter: {availability: {eq: "true"}},first: 100) {
     id
     image {
       responsiveImage (imgixParams: { fit: crop, w: 400, h: 400, auto: format })  {

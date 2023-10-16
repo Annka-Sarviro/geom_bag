@@ -27,21 +27,24 @@ const Filter = ({ filters, setPageCount, setDisabled }: FilterProps) => {
   };
 
   return (
-    <ul className="grid smOnly:grid-cols-3 md:grid-cols-4 xl:w-[800px] mx-auto mb-5 md:mb-10">
+    <ul className="grid  smOnly:auto-rows-min	 md:grid-cols-5 xl:w-[800px] mx-auto mb-5 md:mb-10 gap-y-2">
       {filters.map((item: FiltersProps, ind: number) => {
         return (
-          <Button
-            onClick={handleClick}
-            variant="simple"
-            key={ind}
-            className={`${ind === 0 ? 'smOnly:col-start-1 smOnly:col-end-4 ' : ''} !px-2 mx-auto ${
-              current === item.id ? '!border-dark' : '!border-transparent'
-            }`}
-          >
-            <Paragraph variant="dark" variantFontSize="text" id={item.id} className="{`}">
-              {item.name}
-            </Paragraph>
-          </Button>
+          <li key={ind}>
+            <Button
+              onClick={handleClick}
+              variant="simple"
+              className={`${
+                ind === 0 ? 'smOnly:col-start-1 smOnly:col-end-5 ' : ''
+              } smOnly:!px-1 !px-2 mx-auto ${
+                current === item.id ? '!border-dark' : '!border-transparent'
+              }`}
+            >
+              <Paragraph variant="dark" variantFontSize="text" id={item.id} className="{`}">
+                {item.name}
+              </Paragraph>
+            </Button>
+          </li>
         );
       })}
     </ul>
