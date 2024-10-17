@@ -27,7 +27,7 @@ const Filter = ({ filters, setPageCount, setDisabled }: FilterProps) => {
   };
 
   return (
-    <ul className="grid  smOnly:auto-rows-min	 md:grid-cols-5 xl:w-[800px] mx-auto mb-5 md:mb-10 gap-y-2">
+    <ul className="grid  smOnly:auto-rows-min	 md:grid-cols-6 xl:w-[900px] mx-auto mb-5 md:mb-10 gap-y-2">
       {filters.map((item: FiltersProps, ind: number) => {
         return (
           <li key={ind}>
