@@ -1,18 +1,17 @@
+'use client';
+
 import { useState } from 'react';
 
-import { useFilterContext } from '@/app/context';
 import IconButton from '@/components/button/IconButton';
 import data from '@/data/header.json';
+import { useRouter } from 'next/navigation';
 import { scroller } from 'react-scroll';
 import SearchSvg from '.././../../../public/svg/search.svg';
 import { SearchInputProps } from './SearchInput.props';
 
 const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
-  const { searchfilter, setSearchfilter } = useFilterContext();
-  const [searchParams, setSearchParams] = useState();
-  const query = searchParams;
-
-  const [searchBags, setSearchBags] = useState(query ?? '');
+  const router = useRouter();
+  const [searchBags, setSearchBags] = useState('');
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchBags(e.currentTarget.value.trim());
@@ -21,11 +20,10 @@ const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setSearchfilter(searchBags);
     if (setNavbarOpen) {
       setNavbarOpen(false);
     }
-
+    router.push(`/?filter=${searchBags}`);
     scroller.scrollTo('all_products', {
       duration: 800,
       offset: -50,

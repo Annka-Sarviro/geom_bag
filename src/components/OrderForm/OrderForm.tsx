@@ -8,7 +8,7 @@ import d from '@/data/form.json';
 import { useState } from 'react';
 import { OrderFormProps } from './OrderForm.props';
 
-const OrderForm = ({ item, setIsModalOpen }: OrderFormProps) => {
+const OrderForm = ({ item }: OrderFormProps) => {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   return (
     <div className="w-[80vw] md:max-w-[620px]">
@@ -32,7 +32,6 @@ const OrderForm = ({ item, setIsModalOpen }: OrderFormProps) => {
       <Form
         orderName={item.name}
         price={item.price}
-        setIsModalOpen={setIsModalOpen}
         setIsNotificationOpen={setIsNotificationOpen}
       />
     </div>

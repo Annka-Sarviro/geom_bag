@@ -4,13 +4,25 @@ import Close from '../../../../public/svg/close.svg';
 
 import IconButton from '@/components/button/IconButton';
 import d from '@/data/modal.json';
+import { useRouter } from 'next/navigation';
 import { ModalProps } from './Modal.props';
 
-const Modal = ({ children, ModalClose, setIsModalOpen }: ModalProps) => {
+const Modal = ({ children }: ModalProps) => {
+  const router = useRouter();
+
   const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget === e.target) {
-      ModalClose();
+      router.push('/', {
+        scroll: false,
+      });
+      // ModalClose();
     }
+  };
+
+  const modalClose = () => {
+    router.push('/', {
+      scroll: false,
+    });
   };
   useEffect(() => {
     const originalOverflow = window.getComputedStyle(document.body).overflow;
@@ -18,7 +30,9 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: ModalProps) => {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        ModalClose();
+        router.push('/', {
+          scroll: false,
+        });
       }
     };
 
@@ -28,7 +42,7 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: ModalProps) => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown as unknown as EventListener);
     };
-  }, [ModalClose]);
+  }, []);
   return (
     <ClientOnlyPortal selector="#modal">
       <div
@@ -38,7 +52,7 @@ const Modal = ({ children, ModalClose, setIsModalOpen }: ModalProps) => {
         <div className="p-6 md:p-9 bg-white  relative">
           <IconButton
             type="button"
-            onClick={ModalClose}
+            onClick={modalClose}
             label={d.button.ariaLabel.close}
             className="absolute  top-1 right-0 md:top-2 md:right-2"
           >

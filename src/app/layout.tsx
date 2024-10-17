@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { Noto_Sans } from 'next/font/google';
 import './globals.css';
 
-import { FilterContextProvider, GroupFilterContextProvider } from '@/app/context';
 import query from '@/app/layout.graphql';
 import { request } from '@/lib/datocms';
 
@@ -30,14 +29,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="ua">
       <body className={noto.className}>
-        <GroupFilterContextProvider>
-          <FilterContextProvider>
-            <Header contacts={contacts} />
-            {children}
-            <Analytics />
-            <Footer contacts={contacts} />
-          </FilterContextProvider>
-        </GroupFilterContextProvider>
+        <Header contacts={contacts} />
+        {children}
+        <Analytics />
+        <Footer contacts={contacts} />
       </body>
     </html>
   );

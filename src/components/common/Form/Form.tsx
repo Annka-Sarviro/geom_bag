@@ -12,14 +12,15 @@ import sendToTlg from '@/services/api/sendToTlg';
 import { FormProps } from '@/components/common/Form/Form.props';
 import Paragraph from '@/components/typography/Paragraph';
 import d from '@/data/form.json';
+import { useRouter } from 'next/navigation';
 
-const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: FormProps) => {
+const Form = ({ orderName, price, setIsNotificationOpen }: FormProps) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [finalMessage, setFinalMessage] = useState<string | null>(null);
 
   const STORAGE_KEY = 'orderForm';
-
+  const router = useRouter();
   const {
     formState: { errors },
     handleSubmit,
@@ -50,7 +51,9 @@ const Form = ({ orderName, price, setIsModalOpen, setIsNotificationOpen }: FormP
         setFinalMessage(d.messages.sent);
         setIsNotificationOpen(true);
         setTimeout(() => {
-          setIsModalOpen(false);
+          router.push('/', {
+            scroll: false,
+          });
         }, 4000);
         reset();
         sessionStorage.removeItem(STORAGE_KEY);

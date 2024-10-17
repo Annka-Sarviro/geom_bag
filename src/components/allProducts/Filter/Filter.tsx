@@ -1,13 +1,12 @@
-import { useGroupContext } from '@/app/context';
 import Button from '@/components/button/Button/';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FilterProps, FiltersProps } from './Filter.props';
 
-const Filter = ({ filters, setPageCount, setDisabled }: FilterProps) => {
+const Filter = ({ filters, setPageCount, setDisabled, groupFilter }: FilterProps) => {
   const [current, setCurrent] = useState('all');
-  const { groupFilter, setGroupFilter } = useGroupContext();
-
+  const router = useRouter();
   useEffect(() => {
     if (groupFilter) {
       setCurrent(groupFilter);
@@ -21,8 +20,8 @@ const Filter = ({ filters, setPageCount, setDisabled }: FilterProps) => {
     setDisabled(false);
 
     if (name) {
-      setGroupFilter(name);
       setCurrent(name);
+      router.push(`/?groupFilter=${name}`);
     }
   };
 

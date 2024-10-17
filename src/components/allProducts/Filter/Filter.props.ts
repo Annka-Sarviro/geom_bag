@@ -7,5 +7,5 @@ export interface FilterProps {
   filters: FiltersProps[];
   setPageCount: (pageCount: number) => void;
   setDisabled: (disabled: boolean) => void;
-  setSearchfilter: (value: string) => void;
+  groupFilter: string;
 }
