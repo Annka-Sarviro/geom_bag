@@ -7,9 +7,8 @@ import data from '@/data/header.json';
 import { useRouter } from 'next/navigation';
 import { scroller } from 'react-scroll';
 import SearchSvg from '.././../../../public/svg/search.svg';
-import { SearchInputProps } from './SearchInput.props';
 
-const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
+const SearchInput = () => {
   const router = useRouter();
   const [searchBags, setSearchBags] = useState('');
 
@@ -20,9 +19,12 @@ const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (setNavbarOpen) {
-      setNavbarOpen(false);
+    const burgerMenu = document.getElementById('mobile_menu_overlay');
+    if (burgerMenu && burgerMenu.classList.contains('open')) {
+      burgerMenu.classList.remove('open');
+      document.body.classList.remove('no-scroll');
     }
+
     router.push(`/?filter=${searchBags}`);
     scroller.scrollTo('all_products', {
       duration: 800,
@@ -34,7 +36,11 @@ const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="flex items-center gap-x-4 justify-center relative">
+      <form
+        id="search_form"
+        onSubmit={handleSubmit}
+        className="flex items-center gap-x-4 justify-center relative"
+      >
         <IconButton
           label={data.buttons.searchButton.label}
           onClick={handleSubmit}
@@ -44,6 +50,7 @@ const SearchInput = ({ setNavbarOpen }: SearchInputProps) => {
         </IconButton>
 
         <input
+          id="input_search"
           type="search"
           name="query"
           placeholder={data.search}

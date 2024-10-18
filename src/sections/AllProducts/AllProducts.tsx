@@ -37,7 +37,7 @@ const AllProducts = ({
   const cardQuantity = 8;
   const allPageCount = data.length / cardQuantity;
   const router = useRouter();
-  console.log('isModalOpen', isModalOpen);
+
   useEffect(() => {
     if (searchId) {
       scroller.scrollTo('all_products', {

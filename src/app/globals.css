@@ -22,6 +22,57 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+}
+
+body.no-scroll {
+  overflow-y: hidden;
+  position: fixed;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    overflow-y: initial;
+    position: initial;
+    width: initial;
+  }
+}
+
+#mobile_menu_overlay {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  display: flex;
+  transition:
+    transform 300ms ease,
+    background-color 300ms ease;
+  height: calc(100vh - 80px);
+  width: 100%;
+  background-color: transparent;
+  pointer-events: none;
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+#mobile_menu_overlay #mobile_menu {
+  transition: all 600ms ease;
+  transform: translateY(-130%);
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+#mobile_menu_overlay.open {
+  pointer-events: initial;
+  background-color: rgba(29, 29, 29, 0.34);
+}
+
+#mobile_menu_overlay.open #mobile_menu {
+  transform: translateY(0);
 }
 
 /* start advantages section style */
@@ -944,7 +995,6 @@ body {
 .logo {
   position: relative;
   overflow: hidden;
-  /* clip-path: polygon(50% -5%, -8% 100%, 111% 100%); */
   clip-path: polygon(
     0% 100%,
     9% 76%,
