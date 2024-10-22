@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const seo = data?.homePage?._seoMetaTags || pageData.seo;
   const favicon = data.site.favicon || FaviconImg;
-  return toNextMetadata([...seo, ...favicon] || []);
+  return toNextMetadata([...seo, ...favicon]);
 }
 
 const getFilteredContent = (data: any, name: string) => {
@@ -34,7 +34,17 @@ const getFilteredContent = (data: any, name: string) => {
   return filteredData[0];
 };
 
-const Home = async () => {
+const Home = async ({
+  searchParams,
+}: {
+  searchParams: {
+    filter: string;
+    groupFilter: string;
+    searchId: string;
+    isModalOpen: string;
+    orderModal: string;
+  };
+}) => {
   const data: HomeQueryData = (await getHomepageContent()) as HomeQueryData;
   const heroData: HeroProps = getFilteredContent(data?.allSections, 'hero');
   const productData = data.allProductCards;
@@ -42,6 +52,11 @@ const Home = async () => {
   const materialsData: SectionProps = getFilteredContent(data?.allSections, 'materials');
   const reviewersData: RewiersProps[] = data?.allRewiers;
   const groupMenuData: SectionProps = getFilteredContent(data?.allSections, 'groupMenu');
+  const filter = searchParams.filter;
+  const groupFilter = searchParams.groupFilter;
+  const searchId = searchParams.searchId;
+  const isModalOpen = searchParams.isModalOpen;
+  const orderModal = searchParams.orderModal;
 
   return (
     <main className="">
@@ -55,7 +70,14 @@ const Home = async () => {
         <Advantages data={advantagesData} />
       </Section>
       <Section variant="primary" id="all_products" name="all_products" className="">
-        <AllProducts data={productData} />
+        <AllProducts
+          data={productData}
+          filter={filter}
+          groupFilter={groupFilter}
+          searchId={searchId}
+          isModalOpen={isModalOpen === 'true'}
+          orderModal={orderModal === 'true'}
+        />
       </Section>
       <Section variant="colored" id="materials" className="!p-0">
         <Materials data={materialsData} />

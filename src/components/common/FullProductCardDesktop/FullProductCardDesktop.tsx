@@ -11,13 +11,11 @@ import Paragraph from '@/components/typography/Paragraph/';
 import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
+import { routes } from '@/utils/routs';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { FullProductCardDesktopProps, SliderProp } from './FullProductCardDesktop.props';
 
-const FullProductCardDesktop = ({
-  data,
-  setIsCardOpen,
-  setIsFormOpen,
-}: FullProductCardDesktopProps) => {
+const FullProductCardDesktop = ({ data }: FullProductCardDesktopProps) => {
   const [nav1, setNav1] = useState<any | null>(null);
   const [nav2, setNav2] = useState<any>(null);
   const [imgCount, setImgCount] = useState<number>(0);
@@ -26,6 +24,9 @@ const FullProductCardDesktop = ({
   const slider2 = useRef<Slider | null>(null);
 
   const length = data.image.length;
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
   useEffect(() => {
     if (!nav1 && !nav2) {
       return;
@@ -74,11 +75,12 @@ const FullProductCardDesktop = ({
   };
 
   const handleClick = () => {
-    setIsFormOpen(true);
-    return setIsCardOpen(false);
+    // setIsFormOpen(true);
+    // return setIsCardOpen(false);
+    router.push(`${routes.HOME}?${searchParams}&orderModal=true`);
   };
   return (
-    <div className="max-w-[896px]">
+    <div className="max-w-[896px] smOnly:hidden">
       <div className="flex justify-between	 mb-10 min-h-[350px] ">
         <div className="flex flex-col justify-between">
           <div className="w-[300px]">

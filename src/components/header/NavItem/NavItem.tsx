@@ -1,10 +1,11 @@
+'use client';
 import { usePathname } from 'next/navigation';
 import { FC, Key } from 'react';
 
 import LinkButton from '@/components/button/LinkButton/LinkButton';
 import { NavItemProps } from './NavItem.props';
 
-export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
+export const NavItem: FC<NavItemProps> = ({ list }) => {
   const pathname = usePathname();
 
   return (
@@ -22,7 +23,6 @@ export const NavItem: FC<NavItemProps> = ({ list, setNavbarOpen, isOpen }) => {
               variant="simple"
               offset={item.offset}
               scroll={pathname === '/' || item.id === 'contacts' ? item.scroll : !item.scroll}
-              onClick={() => (isOpen && setNavbarOpen ? setNavbarOpen(false) : '')}
               className="smOnly:mx-auto"
             >
               {item.name}

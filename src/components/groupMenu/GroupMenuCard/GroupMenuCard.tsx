@@ -1,25 +1,13 @@
-'use client';
-
-import { useFilterContext, useGroupContext } from '@/app/context';
 import Paragraph from '@/components/typography/Paragraph';
 import Link from 'next/link';
 import { Image as DatoImage } from 'react-datocms';
 import { GroupMenuCardProps } from './GroupMenuCard.props';
 
 const GroupMenuCard = ({ item, title, id }: GroupMenuCardProps) => {
-  const { groupFilter, setGroupFilter } = useGroupContext();
-  const { searchfilter, setSearchfilter } = useFilterContext();
-
-  const handleClick = () => {
-    setSearchfilter('');
-    return setGroupFilter(id);
-  };
-
   return (
     <li>
       <Link
-        onClick={handleClick}
-        href={'/#all_products'}
+        href={`/?groupFilter=${id}`}
         className="relative h-full w-full flex items-end overflow-hidden"
       >
         <DatoImage

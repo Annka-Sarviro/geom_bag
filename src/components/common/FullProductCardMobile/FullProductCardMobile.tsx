@@ -9,14 +9,14 @@ import Paragraph from '@/components/typography/Paragraph/';
 import Title from '@/components/typography/Title';
 
 import d from '@/data/full_product_card.json';
+import { routes } from '@/utils/routs';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { SliderProp } from '../FullProductCardDesktop/FullProductCardDesktop.props';
 import { FullProductCardMobileProps } from './FullProductCardMobile.props';
 
-const FullProductCardMobile = ({
-  data,
-  setIsCardOpen,
-  setIsFormOpen,
-}: FullProductCardMobileProps) => {
+const FullProductCardMobile = ({ data }: FullProductCardMobileProps) => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const settings = {
     infinite: true,
     speed: 500,
@@ -43,19 +43,18 @@ const FullProductCardMobile = ({
   };
 
   const handleClick = () => {
-    setIsFormOpen(true);
-    return setIsCardOpen(false);
+    router.push(`${routes.HOME}?${searchParams}&orderModal=true`);
   };
   return (
-    <div className="w-[80vw]">
+    <div className="w-[80vw] md:hidden">
       <Slider {...settings} className="fullCardSlider">
-        {data.image.map((item: SliderProp, ind: number) => (
+        {data?.image.map((item: SliderProp, ind: number) => (
           <DatoImage data={item?.responsiveImage} key={ind} />
         ))}
       </Slider>
 
       <Title tag="h3" variant="dark" centered className="">
-        {data.name}
+        {data?.name}
       </Title>
       <Paragraph variantFontSize="text" variant="dark" centered className="text-sm mb-3">
         {d.title.article}

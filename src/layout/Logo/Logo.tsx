@@ -9,7 +9,8 @@ const Logo: FC<LogoProps> = ({ sticky, width = 140, height = 94, className }) =>
   return (
     <Link
       href={routes.HOME}
-      className={cn('logo relative block w-fit', { ['py-4']: sticky }, className)}
+      id="logo-desktop"
+      className={cn('logo relative block w-fit', className)}
     >
       <LogoImg width={width} height={height} aria-label="Логотип сайту" className="" />
     </Link>
