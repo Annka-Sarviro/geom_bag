@@ -1,3 +1,4 @@
+'use client';
 import cn from 'classnames';
 import Link, { LinkProps } from 'next/link';
 import { Link as Scroll } from 'react-scroll';

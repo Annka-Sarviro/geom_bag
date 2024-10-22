@@ -4,6 +4,7 @@ import Close from '../../../../public/svg/close.svg';
 
 import IconButton from '@/components/button/IconButton';
 import d from '@/data/modal.json';
+import { routes } from '@/utils/routs';
 import { useRouter } from 'next/navigation';
 import { ModalProps } from './Modal.props';
 
@@ -12,7 +13,7 @@ const Modal = ({ children }: ModalProps) => {
 
   const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.currentTarget === e.target) {
-      router.push('/', {
+      router.push(routes.HOME, {
         scroll: false,
       });
       // ModalClose();
@@ -20,7 +21,7 @@ const Modal = ({ children }: ModalProps) => {
   };
 
   const modalClose = () => {
-    router.push('/', {
+    router.push(routes.HOME, {
       scroll: false,
     });
   };
@@ -30,7 +31,7 @@ const Modal = ({ children }: ModalProps) => {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        router.push('/', {
+        router.push(routes.HOME, {
           scroll: false,
         });
       }
@@ -42,7 +43,7 @@ const Modal = ({ children }: ModalProps) => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown as unknown as EventListener);
     };
-  }, []);
+  }, [router]);
   return (
     <ClientOnlyPortal selector="#modal">
       <div

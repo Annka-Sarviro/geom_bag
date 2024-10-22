@@ -2,7 +2,6 @@
 
 import { ProductCardProp } from '@/app/page.props';
 import { useEffect, useState } from 'react';
-import { scroller } from 'react-scroll';
 
 import AllProductsList from '@/components/allProducts/AllProductsList';
 import Filter from '@/components/allProducts/Filter';
@@ -12,6 +11,7 @@ import SearchInput from '@/components/common/SearchInput';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
 import Title from '@/components/typography/Title';
 import d from '@/data/all_products.json';
+import { routes } from '@/utils/routs';
 import { useRouter } from 'next/navigation';
 import Close from '../../../public/svg/close.svg';
 
@@ -21,44 +21,54 @@ const AllProducts = ({
   groupFilter,
   searchId,
   isModalOpen,
+  orderModal,
 }: {
   data: ProductCardProp[];
   filter: string;
   groupFilter: string;
   searchId: string;
   isModalOpen: boolean;
+  orderModal: boolean;
 }) => {
   const [pageCount, setPageCount] = useState(1);
   const [disabled, setDisabled] = useState(false);
   const [cardData, setCardData] = useState<ProductCardProp[]>([]);
-
   const [filteredData, setFilteredData] = useState<ProductCardProp[]>([]);
-
+  const getItem = (id: string) => {
+    const search = data.filter(el => el.article.toLocaleLowerCase() === id?.toLowerCase());
+    return search[0];
+  };
+  const item = getItem(searchId);
   const cardQuantity = 8;
   const allPageCount = data.length / cardQuantity;
   const router = useRouter();
 
   useEffect(() => {
-    if (searchId) {
-      scroller.scrollTo('all_products', {
-        duration: 800,
-        offset: -50,
-        smooth: 'easeInOutQuart',
-      });
+    if (groupFilter) {
+      const element = document.getElementById('all_products');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  }, [searchId]);
+  }, [groupFilter]);
 
   useEffect(() => {
-    groupFilter === 'all' || !groupFilter
-      ? setFilteredData(data)
-      : setFilteredData(data.filter((item: ProductCardProp) => item.category === groupFilter));
-  }, [data, groupFilter]);
+    if (searchId && !isModalOpen) {
+      const element = document.getElementById('all_products');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [searchId, isModalOpen]);
 
   useEffect(() => {
-    !searchId
-      ? setFilteredData(data)
-      : setFilteredData(data.filter((item: ProductCardProp) => item.article === searchId));
-  }, [data, searchId]);
+    if (filter) {
+      const element = document.getElementById('all_products');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [filter, isModalOpen]);
 
   useEffect(() => {
     if (filter) {
@@ -74,7 +84,13 @@ const AllProducts = ({
     } else {
       setCardData(filteredData.slice(0, cardQuantity * pageCount));
     }
-  }, [filteredData, pageCount, filter]);
+  }, [filteredData, pageCount, filter, searchId]);
+
+  useEffect(() => {
+    groupFilter === 'all' || !groupFilter
+      ? setFilteredData(data)
+      : setFilteredData(data.filter((item: ProductCardProp) => item.category === groupFilter));
+  }, [data, groupFilter]);
 
   useEffect(() => {
     if (cardData.length < cardQuantity) {
@@ -82,12 +98,22 @@ const AllProducts = ({
     } else allPageCount > pageCount ? setDisabled(false) : setDisabled(true);
   }, [data, pageCount, allPageCount, cardData]);
 
+  useEffect(() => {
+    if (searchId) {
+      const filteredData = data.filter((item: ProductCardProp) => item.article === searchId);
+
+      if (JSON.stringify(filteredData) !== JSON.stringify(cardData)) {
+        setCardData(filteredData);
+      }
+    }
+  }, [data, searchId, cardData]);
+
   const handleClick = () => {
     setPageCount(pageCount + 1);
   };
 
   const handleResetSearch = () => {
-    router.push('/', { scroll: false });
+    router.push(routes.HOME, { scroll: false });
   };
 
   return (
@@ -126,7 +152,7 @@ const AllProducts = ({
         <>
           {(filter || searchId) && (
             <div className="relative">
-              <div className="flex justify-center items-center  mt-4 absolute inset-x-0 bottom-[-30px]">
+              <div className="flex justify-center items-center  mt-4 absolute inset-x-0 bottom-[-46px] md:bottom-[-30px]">
                 <Paragraph variant="dark" centered>
                   {d.searchText} <span>&quot;</span>
                   {searchId ? searchId : filter} <span>&quot;</span>
@@ -141,7 +167,12 @@ const AllProducts = ({
               </div>
             </div>
           )}
-          <AllProductsList data={cardData} isModalOpen={isModalOpen} />
+          <AllProductsList
+            data={cardData}
+            isModalOpen={isModalOpen}
+            orderModal={orderModal}
+            item={item}
+          />
           {!disabled && (
             <Button
               variant="secondary"

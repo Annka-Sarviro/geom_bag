@@ -1,5 +1,6 @@
 import Button from '@/components/button/Button/';
 import Paragraph from '@/components/typography/Paragraph/Paragraph';
+import { routes } from '@/utils/routs';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FilterProps, FiltersProps } from './Filter.props';
@@ -21,7 +22,7 @@ const Filter = ({ filters, setPageCount, setDisabled, groupFilter }: FilterProps
 
     if (name) {
       setCurrent(name);
-      router.push(`/?groupFilter=${name}`);
+      router.push(`${routes.HOME}?groupFilter=${name}`, { scroll: false });
     }
   };
 
@@ -35,7 +36,7 @@ const Filter = ({ filters, setPageCount, setDisabled, groupFilter }: FilterProps
               variant="simple"
               className={`${
                 ind === 0 ? 'smOnly:col-start-1 smOnly:col-end-5 ' : ''
-              } smOnly:!px-1 !px-2 mx-auto ${
+              } smOnly:!px-1 !px-2 mx-auto min-w-fit ${
                 current === item.id ? '!border-dark' : '!border-transparent'
               }`}
             >

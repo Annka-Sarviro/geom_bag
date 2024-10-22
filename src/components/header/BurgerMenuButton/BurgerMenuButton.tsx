@@ -53,13 +53,19 @@ export const BurgerMenuButton = () => {
   useEffect(() => {
     const burgerMenu = document.getElementById('mobile_menu_overlay');
     const body = document.body;
+    const headerEl = document.getElementById('header-thumb');
     if (burgerMenu) {
       if (isMenuOpen) {
         burgerMenu.classList.add('open');
         body.classList.add('no-scroll');
+        headerEl?.classList.add('bg-white');
       } else {
         burgerMenu.classList.remove('open');
         body.classList.remove('no-scroll');
+
+        setTimeout(() => {
+          headerEl?.classList.remove('bg-white');
+        }, 500);
       }
     }
 
@@ -76,6 +82,7 @@ export const BurgerMenuButton = () => {
         onClick={handleButtonClick}
       >
         <svg
+          id="burger_svg"
           width="42"
           height="42"
           viewBox="0 0 42 42"

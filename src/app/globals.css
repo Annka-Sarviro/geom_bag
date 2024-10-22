@@ -19,13 +19,18 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
+html,
 body {
   color: rgb(var(--foreground-rgb));
   overflow-x: hidden !important;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
 body.no-scroll {
   overflow-y: hidden;
   position: fixed;
@@ -36,6 +41,78 @@ body.no-scroll {
     position: initial;
     width: initial;
   }
+}
+
+main {
+  flex: 1;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dfdede;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6e6e6e;
+}
+
+#header.no-visible {
+  border-color: white;
+
+  @media screen and (min-width: 768px) {
+    transform: translate3d(0, -65px, 0);
+  }
+
+  @media screen and (min-width: 1240px) {
+    transform: translate3d(0, -70px, 0);
+  }
+}
+#header #logo-desktop {
+  transition: all 300ms ease;
+  transform: scale(1);
+
+  @media screen and (min-width: 768px) {
+    transform: scale(0.7);
+  }
+  @media screen and (min-width: 1240px) {
+    transform: scale(1);
+  }
+}
+#header.no-visible #logo-desktop {
+  transform: scale(0.7);
+
+  @media screen and (min-width: 768px) {
+    top: 40px;
+  }
+
+  @media screen and (min-width: 1240px) {
+    top: 36px;
+  }
+}
+
+#header.transparent-background {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #mobile_menu_overlay {

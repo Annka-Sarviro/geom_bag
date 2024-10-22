@@ -37,7 +37,13 @@ const getFilteredContent = (data: any, name: string) => {
 const Home = async ({
   searchParams,
 }: {
-  searchParams: { filter: string; groupFilter: string; searchId: string; isModalOpen: string };
+  searchParams: {
+    filter: string;
+    groupFilter: string;
+    searchId: string;
+    isModalOpen: string;
+    orderModal: string;
+  };
 }) => {
   const data: HomeQueryData = (await getHomepageContent()) as HomeQueryData;
   const heroData: HeroProps = getFilteredContent(data?.allSections, 'hero');
@@ -50,6 +56,7 @@ const Home = async ({
   const groupFilter = searchParams.groupFilter;
   const searchId = searchParams.searchId;
   const isModalOpen = searchParams.isModalOpen;
+  const orderModal = searchParams.orderModal;
 
   return (
     <main className="">
@@ -69,6 +76,7 @@ const Home = async ({
           groupFilter={groupFilter}
           searchId={searchId}
           isModalOpen={isModalOpen === 'true'}
+          orderModal={orderModal === 'true'}
         />
       </Section>
       <Section variant="colored" id="materials" className="!p-0">

@@ -7,7 +7,7 @@ const GroupMenuCard = ({ item, title, id }: GroupMenuCardProps) => {
   return (
     <li>
       <Link
-        href={`/#all_products?groupFilter=${id}`}
+        href={`/?groupFilter=${id}`}
         className="relative h-full w-full flex items-end overflow-hidden"
       >
         <DatoImage

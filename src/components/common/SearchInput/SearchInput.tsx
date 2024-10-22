@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 import IconButton from '@/components/button/IconButton';
 import data from '@/data/header.json';
+import { routes } from '@/utils/routs';
 import { useRouter } from 'next/navigation';
-import { scroller } from 'react-scroll';
 import SearchSvg from '.././../../../public/svg/search.svg';
 
 const SearchInput = () => {
@@ -20,17 +20,27 @@ const SearchInput = () => {
     e.preventDefault();
 
     const burgerMenu = document.getElementById('mobile_menu_overlay');
+    const burgerSvg = document.getElementById('burger_svg');
     if (burgerMenu && burgerMenu.classList.contains('open')) {
       burgerMenu.classList.remove('open');
       document.body.classList.remove('no-scroll');
+
+      const paths = burgerSvg?.querySelectorAll('path');
+
+      if (paths && paths?.length >= 2) {
+        const firstPath = paths[0];
+        const secondPath = paths[1];
+        const thirdPath = paths[2];
+
+        firstPath.classList.remove('translate-x-[-6px]', 'translate-y-[6px]');
+        firstPath.classList.add('transform-none');
+        secondPath.classList.remove('opacity-0');
+        thirdPath.classList.remove('translate-x-[-6px]', 'translate-y-[-6px]');
+        thirdPath.classList.add('transform-none');
+      }
     }
 
-    router.push(`/?filter=${searchBags}`);
-    scroller.scrollTo('all_products', {
-      duration: 800,
-      offset: -50,
-      smooth: 'easeInOutQuart',
-    });
+    router.push(`${routes.HOME}?filter=${searchBags}`);
     setSearchBags('');
   };
 

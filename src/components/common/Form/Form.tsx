@@ -12,6 +12,7 @@ import sendToTlg from '@/services/api/sendToTlg';
 import { FormProps } from '@/components/common/Form/Form.props';
 import Paragraph from '@/components/typography/Paragraph';
 import d from '@/data/form.json';
+import { routes } from '@/utils/routs';
 import { useRouter } from 'next/navigation';
 
 const Form = ({ orderName, price, setIsNotificationOpen }: FormProps) => {
@@ -51,7 +52,7 @@ const Form = ({ orderName, price, setIsNotificationOpen }: FormProps) => {
         setFinalMessage(d.messages.sent);
         setIsNotificationOpen(true);
         setTimeout(() => {
-          router.push('/', {
+          router.push(routes.HOME, {
             scroll: false,
           });
         }, 4000);
